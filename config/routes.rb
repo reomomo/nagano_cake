@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :public do
+    root to: 'homes#top'
+    get '/about' => 'homes#about'
+  end
+  
   devise_for :customers, controllers: {
     sessions:      'public/sessions',
     passwords:     'public/passwords',
