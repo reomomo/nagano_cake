@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
+
 
   devise_for :customers, skip: [:passwords], module: "public"
   devise_for :admin, skip: [:registrations, :passwords], module: "admin"
 
-=======
-
-  devise_for :customers, module: "public"
-  devise_for :admin, module: "admin"
-
->>>>>>> develop
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
 
