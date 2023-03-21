@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/' => 'homes#top'
     resources :genres, only: [:index, :edit]
+    resources :customers, only: [:show, :index, :edit, :update]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
