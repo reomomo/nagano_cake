@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'customers/show'
+    get 'customers/index'
+    get 'customers/edit'
+  end
   devise_for :customers, module: "public"
   devise_for :admin, module: "admin"
 
