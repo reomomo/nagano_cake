@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :customers, module: "public"
-  devise_for :admin, module: "admin"
+  devise_for :customers, skip: [:passwords], module: "public"
+  devise_for :admin, skip: [:registrations, :passwords], module: "admin"
 
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
