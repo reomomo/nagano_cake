@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+  end
   devise_for :customers, module: "public"
   devise_for :admin, module: "admin"
   root to: 'public/homes#top'
