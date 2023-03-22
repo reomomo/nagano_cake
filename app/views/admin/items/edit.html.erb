@@ -11,14 +11,14 @@
 <%= form_with model: @item, url: admin_item_path do |f| %>
 
   <div class="field">
-    <%= f.label :"商品名" %><br />
-    <%= f.text_field :name %>
-    <%= f.label :"商品説明" %><br />
-    <%= f.text_field :introduction, placeholder: "ここに説明文を記述します" %>
-    <%= f.label :"ジャンル" %><br />
-    <%= f.text_field :is_active, placeholder: "" %>
-    <%= f.label :"税抜価格" %>円<br />
-    <%= f.text_field :price, placeholder: "1000" %>
+    <%= f.label :"商品名" %>
+    <%= f.text_field :name %><br />
+    <%= f.label :"商品説明" %>
+    <%= f.text_field :introduction, placeholder: "ここに説明文を記述します" %><br />
+    <%= f.label :"ジャンル" %>
+    <%= f.text_field :is_active, placeholder: "" %><br />
+    <%= f.label :"税抜価格" %>円
+    <%= f.text_field :price, placeholder: "1000" %><br />
   </div>
 
   <div class="actions">
