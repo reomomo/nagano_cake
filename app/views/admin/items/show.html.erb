@@ -3,8 +3,14 @@
   <div class="row">
     <div class="col-md-4.offset-md-8">
       <h3 class="bg-light">商品詳細</h3>
-      <%= image_tag @item.get_image(100,100) %>
-      <table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @item.get_image(200,200) %>
+    </div>
+    <div class="col-md-6.offset-md-2">
+      <table class="mb-3">
         <tr>
           <th>商品名</th>
           <td><%= @item.name %></td>
@@ -14,19 +20,19 @@
         　<td><%= @item.introduction %></td>
         </tr>
         <tr>
-          <td>ジャンル</td>
+          <th>ジャンル</th>
         　<td><%= @item.genre.name %></td>
       　</tr>
       　<tr>
         　<th>税込価格<br>(税抜価格)</th>
-        　<td><%= @item.add_tax_price.to_s(:delimited) %> (<%= @item.price.to_s(:delimited) %>) 円</td>
+        　<td><strong><%= @item.add_tax_price.to_s(:delimited) %> (<%= @item.price.to_s(:delimited) %>)</strong> 円</td>
       　</tr>
       　<tr>
         　<th>販売ステータス</th>
         　<td><% if @item.is_active == true %>
-            販売中
+            <strong class="text-success">販売中</strong>
           <% else %>
-            販売停止中
+            <strong class="text-success">販売停止中</strong>
           <% end %></td>
         </tr>
       </table>
