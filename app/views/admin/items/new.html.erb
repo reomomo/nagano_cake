@@ -12,14 +12,14 @@
   <div class="row">
     <div class="col-md-8">
       <%= form_with model: @item, url: admin_items_path do |f| %>
-          <%= f.label :"商品名" %>
-          <%= f.text_field :name, placeholder: "商品名" %><br />
+          <%= f.label :"商品画像" %>
+          <%= f.file_field :image, accept: "image/*" %><br />
           <%= f.label :"商品名" %>
           <%= f.text_field :name, placeholder: "商品名" %><br />
           <%= f.label :"商品説明" %>
           <%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %><br />
           <%= f.label :"ジャンル" %>
-          <%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.name] }, {include_blank: '--選択してください--'} %><br />
+          <%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.id]}, {include_blank: '--選択してください--'} %><br />
           <%= f.label :"税抜価格" %>円
           <%= f.text_field :price, placeholder: "1000" %><br />
           <%= f.label :"販売ステータス" %>
