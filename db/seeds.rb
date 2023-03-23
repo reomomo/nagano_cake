@@ -9,3 +9,9 @@ Admin.create!(
   email: "reo@gmail",
   password: "oooppp"
   )
+
+Admin.all.each do |admin|
+  admin.genres.create!(
+    name: 'ケーキ'
+  )
+end

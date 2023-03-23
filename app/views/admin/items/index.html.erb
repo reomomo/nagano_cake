@@ -26,11 +26,12 @@
         <tr>
           <td><%= item.id %></td>
           <td>
-            <%= link_to item.name, admin_item_path(item.id) %>
-          </td>
-          <td><%= item.price %></td>
-          <td><%= item.genre_name %></td>
-          <td><%= item.is_active %></td>
+            <%= link_to admin_item_path(item.id) do %>
+              <%= item.name %>
+            <% end %>
+          <td><%= item.price.to_s(:delimited) %></td>
+          <td><%= item.genre.name %></td>
+          <td><%= item.is_active ? "販売中" : "販売停止中" %></td>
         </tr>
         <% end %>
       </table>

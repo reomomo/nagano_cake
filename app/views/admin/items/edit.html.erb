@@ -22,9 +22,9 @@
     <%= f.label :"税抜価格" %>円
     <%= f.text_field :price %><br />
     <%= f.label :"販売ステータス" %>
-    <%= f.radio_button :is_active, :on_sale %>
+    <%= f.radio_button :is_active, true, :checked => @item.is_active == true %>
     <%= f.label :is_active, "販売中", {value: :on_sale, style: "display: inline-block;"} %>
-    <%= f.radio_button :is_active, :stopping_sales%>
+    <%= f.radio_button :is_active, false, :checked => @item.is_active == false %>
     <%= f.label :is_active, "販売停止中", {value: :stopping_sales, style: "display: inline-block;"} %><br />
 
   </div>
