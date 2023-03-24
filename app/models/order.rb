@@ -5,7 +5,8 @@ class Order < ApplicationRecord
 # payment_waiting=入金待ち、payment_confirmation=入金確認、in_production=製作中、
 # preparing_delivery=発送準備中、delivered=発送済み
 
-belongs_to :order_detail
+has_many :order_details, dependent: :destroy
+belongs_to :customer
 
 
 end
