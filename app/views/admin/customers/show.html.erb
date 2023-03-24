@@ -1,0 +1,86 @@
+<div class="container">
+  <!--タイトル-->
+  <div class="row">
+    <div class="col-md-5">
+      <h5 class="bg-gray px-1 text-center"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h5>
+    </div>
+  </div>
+
+  <!--一覧-->
+  <div class="row">
+    <div class="col-md-2">
+      <strong>会員ID</strong>
+    </div>
+    <div class="col-md-10">
+      <strong><%= @customer.id %></strong>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <strong>氏名</strong>
+    </div>
+    <div class="col-md-10">
+      <strong><%= @customer.last_name %><%= @customer.first_name %></strong>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <strong>フリガナ</strong>
+    </div>
+    <div class="col-md-10">
+      <strong><%= @customer.last_name_kana %><%= @customer.first_name_kana %></strong>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <strong>郵便番号</strong>
+    </div>
+    <div class="col-md-10">
+      <strong><%= @customer.postal_code %></strong>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <strong>住所</strong>
+    </div>
+    <div class="col-md-10">
+      <strong><%= @customer.address %></strong>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <strong>電話番号</strong>
+    </div>
+    <div class="col-md-10">
+      <strong><%= @customer.telephone_number %></strong>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <strong>メールアドレス</strong>
+    </div>
+    <div class="col-md-10">
+      <strong><%= @customer.email %></strong>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <strong>会員ステータス</strong>
+    </div>
+    <div class="col-md-10">
+      <% if @customer.is_deleted == false %>
+        <strong class="h5 font-weight-bold text-success">有効</strong>
+      <% else %>
+        <strong class="h5 font-weight-bold text-secondary">退会</strong>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success" %>
+    </div>
+    <div class="col-md-4 offset-md-1">
+      <%= link_to "注文履歴一覧を見る", edit_admin_customer_path(@customer.id), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
