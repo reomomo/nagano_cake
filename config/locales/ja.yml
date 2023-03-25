@@ -20,7 +20,7 @@ ja:
 
     order_detail:
       making_status:
-        production_not_possible: "製作不可"
+        start_not_possible: "着手不可"
         production_pending: "制作待ち"
         in_production: "製作中"
         production_complete: "製作完了"

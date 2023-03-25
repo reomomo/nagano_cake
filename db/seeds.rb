@@ -64,10 +64,10 @@ Customer.create!(
   )
 
 Customer.create!(
-  first_name: "佐藤",
-  last_name: "太郎",
-  first_name_kana: "サトウ",
-  last_name_kana: "タロウ",
+  first_name: "太郎",
+  last_name: "佐藤",
+  first_name_kana: "タロウ",
+  last_name_kana: "サトウ",
   postal_code: "2250002",
   address: "神奈川県",
   telephone_number: "090-0000-0002",
@@ -87,6 +87,17 @@ Order.create!(
     status: 0,
   )
 
+Order.create!(
+    customer_id: 2,
+    delivery_target_postal_code: "1115555",
+    delivery_address: "東京都世田谷区〇〇〇〇〇〇1-5-8　マンション205",
+    delivery_target_full_name: "佐藤花子",
+    postage: 800,
+    pay_amount: 3740,
+    payment_methods: 1,
+    status: 0,
+  )
+
 OrderDetail.create!(
     item_id: 1,
     order_id: 1,
@@ -101,4 +112,20 @@ OrderDetail.create!(
     product_sum: 1650,
     amount: 3,
     making_status: 0
+  )
+
+OrderDetail.create!(
+    item_id: 2,
+    order_id: 2,
+    product_sum: 3190,
+    amount: 1,
+    making_status: 0,
+  )
+
+OrderDetail.create!(
+    item_id: 3,
+    order_id: 2,
+    product_sum: 550,
+    amount: 1,
+    making_status: 0,
   )
