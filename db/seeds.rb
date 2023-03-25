@@ -27,6 +27,7 @@ Genre.create!(
   )
 
 Item.create!(
+    genre_id: 1,
     name: "いちごのショートケーキ（ホール）",
     introduction: "とちおとめ",
     price: "2500",
@@ -34,6 +35,7 @@ Item.create!(
   )
 
 Item.create!(
+    genre_id: 1,
     name: "ザッハトルテ",
     introduction: "美味",
     price: "2900",
@@ -41,6 +43,7 @@ Item.create!(
   )
 
 Item.create!(
+    genre_id: 1,
     name: "モンブラン",
     introduction: "濃厚",
     price: "500",
