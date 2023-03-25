@@ -1,7 +1,9 @@
 class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
-    @order_details = @arder.OrderDetail.all
+    @order_details = @order.order_details
+    @making_status = @order_details.making_statuses
+
   end
 
   def update

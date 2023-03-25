@@ -58,7 +58,7 @@ Customer.create!(
   email: "taro@gmail",
   password: "tarotaro",
   postal_code: "2250001",
-  address: "神奈川県",
+  address: "神奈川県横浜市中区〇〇〇〇〇〇〇1-5-8　マンション205",
   telephone_number: "090-0000-0000",
   is_deleted: true
   )
@@ -79,10 +79,10 @@ Customer.create!(
 Order.create!(
     customer_id: 1,
     delivery_target_postal_code: "2555555",
-    delivery_address: "神奈川県",
+    delivery_address: "神奈川県横浜市中区〇〇〇〇〇〇〇1-5-8　マンション205",
     delivery_target_full_name: "田中太郎",
     postage: 800,
-    pay_amount: 5200,
+    pay_amount: 4400,
     payment_methods: 0,
     status: 0,
   )

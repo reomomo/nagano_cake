@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  enum payment_method: { credit_card: 0, transfer: 1 }
+  enum payment_methods: { credit_card: 0, transfer: 1 }
 #credit_card=クレジットカード、bank_transfer＝銀行振込
   enum status: { payment_waiting: 0, payment_confirmation: 1, in_production: 2, preparing_delivery: 3, delivered: 4 }
 # payment_waiting=入金待ち、payment_confirmation=入金確認、in_production=製作中、
@@ -7,9 +7,5 @@ class Order < ApplicationRecord
 
   has_many :order_details, dependent: :destroy
   belongs_to :customer
-
-  def add_tax_price
-    (self.price * 1.10).round
-  end
 
 end
