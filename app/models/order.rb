@@ -5,8 +5,11 @@ class Order < ApplicationRecord
 # payment_waiting=入金待ち、payment_confirmation=入金確認、in_production=製作中、
 # preparing_delivery=発送準備中、delivered=発送済み
 
-has_many :order_details, dependent: :destroy
-belongs_to :customer
+  has_many :order_details, dependent: :destroy
+  belongs_to :customer
 
+  def add_tax_price
+    (self.price * 1.10).round
+  end
 
 end

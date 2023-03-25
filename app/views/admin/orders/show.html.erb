@@ -1,2 +1,82 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<!--タイトル-->
+<div class="container">
+  <div class="row mb-2">
+    <div class="col-md-3">
+      <h3 class="bg-gray px-1 text-center">注文履歴詳細</h3>
+    </div>
+  </div>
+
+<!--購入者情報-->
+  <div class="row mb-2">
+    <div class="col-md-2">
+      <strong class="font-large" >購入者</strong>
+    </div>
+    <div class="col-md-10">
+      <%= @order.last_name %><%= @order.first_name %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-md-2">
+      <strong>注文日</strong>
+    </div>
+    <div class="col-md-10">
+      <%= @order.created_at %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-md-2">
+      <strong>配送先</strong>
+    </div>
+    <div class="col-md-10">
+      <%= @order.delivery_target_postal_code %><%= @order.delivery_address %><br>
+      <%= @order.delivery_target_full_name %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-md-2">
+      <strong>支払方法</strong>
+    </div>
+    <div class="col-md-10">
+      <strong><%= @item.add_tax_price.to_s(:delimited) %> (<%= @item.price.to_s(:delimited) %>)</strong> 円
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-2">
+      <strong>注文ステータス</strong>
+    </div>
+    <div class="col-md-2">
+    <%= form_with model: @order do |f| %>
+      <%= f.collection_select :payment_method, Order.all, :id, :payment_methods %>
+    </div>
+    <div class="col-md-8">
+      <%= f.submit '更新', class: "btn btn-success font-weight-bold btn-block" %>
+    <% end %>
+    </div>
+  </div>
+
+<!--注文内容-->
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <tr class="bg-light">
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th>製作ステータス</th>
+        </tr>
+        <% @order_details.each do |order_detail| %>
+        <tr>
+          <td><%= order_detail.item.name %></td>
+          <td><%= order_detail.item.price.add_tax_price.to_s(:delimited)  %></td>
+          <td><%= order_detail.amount %></td>
+          <td><%= (order_detail.amount * order_detail.item.price.add_tax_price).to_s(:delimited) %></td>
+          <td><%= select :making_status, order.statuses.keys.to_a %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+<!--合計金額-->
+</div>
