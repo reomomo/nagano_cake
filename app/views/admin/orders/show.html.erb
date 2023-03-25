@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-2 align-self-center">
     <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
-      <%= f.select :status, options_for_select(Order.statuses_i18n.invert), { class: "form-control"} %>
+      <%= f.select :status, options_for_select(Order.statuses_i18n.invert), { :selected => @order.status.to_i }, { class: "form-control"} %>
     </div>
     <div class="col-md-2 align-self-start">
       <%= f.submit '更新', class: "btn btn-success font-weight-bold" %>
