@@ -19,12 +19,12 @@
         <h5><strong>お届け先</strong></h5>
           <%= f.radio_button :delivery_address, checked: true %>
           <%= f.label :delivery_address, "ご自身の住所", class:"mb-0" %><br />
-             〒<%= current_customer.postal_code.to_s.insert(3, "-") %> <%= current_customer.address %><br />
+            "〒"<%= current_customer.postal_code.to_s.insert(3, "-") %> <%= current_customer.address %><br />
           <%= current_customer.last_name %><%= current_customer.first_name %><br />
           <%= f.radio_button :delivery_address, :address  %>
           <%= f.label :delivery_address, "登録済み住所から選択" %><br />
-          <div class="border border-secondary rounded"><%= current_customer.address %></div><br />
-          <%= f.select :making_status, options_for_select(OrderDetail.making_statuses_i18n.invert, { :selected => order_detail.making_status }), { class: "form-control d-inline-flex"} %>
+          <div class="border border-secondary rounded">
+          </div><br />
           <%= f.radio_button :delivery_address, :address  %>
           <%= f.label :delivery_address, "新しいお届け先" %><br />
           <%= f.label :"郵便番号(ハイフンなし)" %>
