@@ -1,8 +1,6 @@
 ja:
-  activerecord:
-    errors:
-      messages:
-        record_invalid: "バリデーションに失敗しました: %{errors}"
+  credit_card: "クレジットカード"
+  transfer: "銀行振込"
 
   enums:
     order:

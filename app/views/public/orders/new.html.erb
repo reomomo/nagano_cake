@@ -1,0 +1,34 @@
+<!--タイトル-->
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-md-3 offset-1">
+      <h5 class="bg-gray px-1 text-center">注文情報入力</h5>
+    </div>
+  </div>
+
+<!--注文情報入力-->
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @order, url: orders_path do |f| %>
+        <h5><strong>支払方法</strong></h5>
+          <%= f.radio_button :payment_methods, 0, checked: true %>
+          <%= f.label :payment_methods, I18n.t(Order.payment_methods.key(0)) %>
+          <%= f.radio_button :payment_methods, 1 %>
+          <%= f.label :payment_methods, Order.payment_methods.key(1) %><br />
+
+        <h5><strong>お届け先</strong></h5>
+          <%= f.radio_button :delivery_address, checked: true %>
+          <%= f.label :delivery_address, "ご自身の住所", class:"mb-0" %><br />
+             〒<%= current_customer.postal_code.to_s.insert(3, "-") %> <%= current_customer.address %><br />
+          <%= current_customer.last_name %><%= current_customer.first_name %><br />
+          <%= f.radio_button :delivery_address, :address  %>
+          <%= f.label :delivery_address, "神奈川県" %><br />
+
+
+
+        <%= f.submit "新規登録", class: "btn btn-success" %>
+
+      <% end %>
+    </div>
+  </div>
+</div>
