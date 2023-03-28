@@ -1,64 +1,121 @@
-<h2>新規会員登録</h2>
+<!--タイトル-->
+<div class="container">
+  <div class="row mb-5 mt-4">
+    <div class="col-md-3">
+      <h5 class="bg-gray px-1 text-center">新規会員登録</h5>
+    </div>
+  </div>
 
+<!--会員登録-->
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :姓 %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>名前</div>
+    </div>
+    <div class="col-1 d-flex justify-content-end p-0">
+      <%= f.label :"(姓)　", class: "d-inline-flex" %>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "令和", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+    <div class="col-1 d-flex mr-0 justify-content-end p-0">
+      <%= f.label :"(名)　", class: "d-inline-flex" %>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "道子", class: "rounded ml-2 d-inline-flex w-100" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :名 %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>フリガナ</div>
+    </div>
+    <div class="col-1 d-flex justify-content-end p-0">
+      <%= f.label :"(セイ)", class: "d-inline-flex" %>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", placeholder: "レイワ", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+    <div class="col-1 d-flex mr-0 justify-content-end p-0">
+      <%= f.label :"(メイ)", class: "d-inline-flex" %>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "ミチコ", class: "rounded ml-2 d-inline-flex w-100" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :セイ %><br />
-    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>メールアドレス</div>
+    </div>
+    <div class="col-1 d-flex p-0"></div>
+    <div class="col-3 d-flex p-0">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :メイ %><br />
-    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>郵便番号(ハイフンなし)</div>
+    </div>
+    <div class="col-1 d-flex p-0"></div>
+    <div class="col-3 d-flex p-0">
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder: "0000000", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>住所</div>
+    </div>
+    <div class="col-1 d-flex p-0"></div>
+    <div class="col-7 d-flex p-0">
+      <%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: "東京都渋谷区代々木神園町0-0", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :郵便番号 %><br />
-    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>電話番号(ハイフンなし)</div>
+    </div>
+    <div class="col-1 d-flex p-0"></div>
+    <div class="col-3 d-flex p-0">
+      <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number", placeholder: "0000000000", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :住所 %><br />
-    <%= f.text_area :address, autofocus: true, autocomplete: "address" %>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>パスワード(6文字以上)</div>
+    </div>
+    <div class="col-1 d-flex p-0"></div>
+    <div class="col-3 d-flex p-0">
+      <% if @minimum_password_length %>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :電話番号 %><br />
-    <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>パスワード(確認用)</div>
+    </div>
+    <div class="col-1 d-flex p-0"></div>
+    <div class="col-3 d-flex p-0">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="row mb-3">
+    <div class="col-1 offset-3 d-flex p-0"></div>
+    <div class="col-3 d-flex p-0">
+      <%= f.submit "新規登録", class: "btn btn-success font-weight-bold w-75 ml-2" %>
+    </div>
   </div>
 <% end %>
 
-<%= render "public/shared/links" %> からログインしてください。
+  <div class="row">
+    <div class="col-md-3">
+      <h5 class="bg-gray px-1 text-center">既に登録済みの方</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col offset-1 d-flex">
+      <%= render "public/shared/links", class: "d-inline-flex" %>
+      <div class="d-inline-flex ml-2">からログインしてください。</div>
+    </div>
+  </div>
+</div>
