@@ -1,0 +1,62 @@
+<!--タイトル-->
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-md-3 offset-1">
+      <h5 class="bg-gray px-1 text-center">注文情報確認</h5>
+    </div>
+  </div>
+
+<!--確認画面-->
+  <div class="row mb-4">
+    <div class="col-md-9">
+      <table class="table">
+        <tr class="bg-light">
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+        </tr>
+        <% @order_details.each do |order_detail| %>
+        <tr>
+          <td><%= order_detail.item.name %></td>
+          <td><div class="text-center"><%= order_detail.add_tax_price.to_s(:delimited)  %></div></td>
+          <td><div class="text-center"><%= order_detail.amount %></div></td>
+          <td><%= (order_detail.amount * order_detail.add_tax_price).to_s(:delimited) %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-3 ml-5">
+      <table>
+        <tr>
+          <th>送料</th>
+          <td><div class="ml-3"><%= @order.postage.to_s(:delimited) %>円</div></td>
+        </tr>
+        <tr>
+          <th>商品合計</th>
+          <td><div class="ml-2"><%= @order.pay_amount.to_s(:delimited) %>円</div></td>
+        </tr>
+
+        <tr>
+          <th>請求金額合計</th>
+          <td><strong class="ml-2"><%= (@order.pay_amount + @order.postage).to_s(:delimited) %>円</strong></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-2">
+      <strong>支払方法</strong>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-2">
+      <strong>お届け先</strong>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+</div>

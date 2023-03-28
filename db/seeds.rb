@@ -129,3 +129,31 @@ OrderDetail.create!(
     amount: 1,
     making_status: 0,
   )
+
+Address.create!(
+  customer_id: 1,
+  name: "田中花子",
+  postal_code: 2506666,
+  address: "東京都渋谷区〇〇0-0"
+  )
+
+Address.create!(
+  customer_id: 1,
+  name: "田中次郎",
+  postal_code: 1540000,
+  address: "東京都港区〇〇0-0"
+  )
+
+Address.create!(
+  customer_id: 2,
+  name: "佐藤次郎",
+  postal_code: 1540000,
+  address: "東京都足立区〇〇0-0"
+  )
+
+Address.create!(
+  customer_id: 2,
+  name: "佐藤桜子",
+  postal_code: 1310000,
+  address: "東京都江戸川区〇〇0-0"
+  )
