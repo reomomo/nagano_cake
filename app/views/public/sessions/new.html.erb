@@ -1,26 +1,49 @@
-<h2>Log in</h2>
-
-<%= form_with model: @customer, url: customer_session_path do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<!--タイトル-->
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-md-3 offset-md-2 ml-0">
+      <h4 class="bg-gray px-1 text-center">ログイン</h4>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
 
-<%= render "public/shared/links" %>
+<!--ログイン-->
+<%= form_with model: @customer, url: customer_session_path do |f| %>
+  <div class="row mb-4">
+    <div class="col-md-4 offset-md-3 ml-3">
+      <h6 class="bg-gray px-1 text-center">会員の方はこちらからログイン</h6>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-2 offset-md-3 d-flex">
+      <%= f.label :メールアドレス %>
+    </div>
+    <div class="col-5 d-flex">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "rounded w-100" %>
+    </div>
+  </div>
+  <div class="row mb-8">
+    <div class="col-md-2 offset-md-3 d-flex">
+      <%= f.label :パスワード %>
+    </div>
+    <div class="col-5 d-flex">
+      <%= f.password_field :password, autocomplete: "current-password", class: "rounded w-100" %>
+    </div>
+  </div>
+  <div class="row mt-5 mb-5">
+    <div class="col-4 offset-3 actions">
+        <%= f.submit "ログイン", class: "btn btn-primary font-weight-bold w-50 mr-5" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mt-5 mb-3">
+    <div class="col-md-4 ml-3">
+      <h5 class="bg-gray px-1 text-center">会員登録がお済みでない方</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col offset-2 d-flex">
+      <%= render "public/shared/links", class: "d-inline-flex" %>
+      <div class="d-inline-flex ml-2">から新規登録を行ってください。</div>
+    </div>
+  </div>
+</div>
