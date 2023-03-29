@@ -1,2 +1,97 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<%= render 'header' %>
+
+<!--タイトル-->
+<div class="container">
+  <div class="row mb-2">
+    <div class="col-md-3">
+      <h5 class="bg-gray px-1 text-center">会員情報編集</h5>
+    </div>
+  </div>
+
+<!--会員登録-->
+<%= form_with model: @customer, url: customers_information_path do |f| %>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>名前</div>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+    <div class="col-3 offset-1 d-flex p-0">
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "rounded ml-2 d-inline-flex w-100" %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>フリガナ</div>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+    <div class="col-3 offset-1 d-flex p-0">
+      <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class: "rounded ml-2 d-inline-flex w-100" %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>メールアドレス</div>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>郵便番号(ハイフンなし)</div>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>住所</div>
+    </div>
+    <div class="col-8 d-flex p-0">
+      <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>電話番号(ハイフンなし)</div>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>パスワード(6文字以上)</div>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <% if @minimum_password_length %>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>パスワード(確認用)</div>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-4 offset-3 d-flex p-0">
+      <%= f.submit "編集内容を保存", class: "btn btn-success font-weight-bold w-75 ml-2" %>
+    </div>
+    <div class="col-2 offset-3 d-flex p-0">
+      <%= link_to customers_unsubscribe_path do %>
+        <div class="btn btn-danger font-weight-bold">退会する</div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+</div>

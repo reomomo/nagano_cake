@@ -1,9 +1,7 @@
 class Home < ApplicationRecord
   has_one_attached :profile_image
 
-  # def top
-  #   @items = Item.all.order(created_at: :desc)
-  # end
+
 
   def get_image(width, height)
   　 unless image.attached?

@@ -13,9 +13,18 @@
 
 .image {
   background-image: url("../images/wakubatsu.jpg");
-  width: 80%;
-  height: 100%;
-  background-position: center;
+  width: 60%;
+  height: 90%;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.image-about {
+  background-image: url("../images/wakubatsu.jpg");
+  width: 36%;
+  height: 80%;
+  background-position: left;
   background-repeat: no-repeat;
   background-size: 100%;
 }
