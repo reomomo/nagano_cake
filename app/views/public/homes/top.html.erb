@@ -1,4 +1,6 @@
-<div class="container">
+<%= render 'header' %>
+
+<div class="container-md m-0">
   <div class="row mt-4">
 <!--ジャンル検索-->
     <div class="col-md-2">
@@ -26,18 +28,34 @@
     <div class="col-md-10">
       <div class="image">
 <!-- jumbotron-->
-        <div class="border">
+        <div class="card w-75">
           ようこそ、ながのCAKEへ！<br>
           このサイトは、ケーキ販売のECサイトになります。<br>
           会員でない方も商品の閲覧はできますが、<br>
           購入には会員登録が必要になります。
         </div>
       </div>
-
-<!-- jumbotron-->
     </div>
   </div>
 <!--新着商品-->
   <div class="row mt-4">
-
+    <div class="col offset-md-2">
+      <h4><strong>新着商品</strong></h4>
+      <div class="d-flex">
+        <div class="row">
+        <% Item.all.order(created_at: :desc).each do |item| %>
+          <div class="row">
+            <div class="col">
+              <%= image_tag item.get_image(100,80) %>
+          　   <p>商品名</p>
+          　   ¥<%= item.price.to_s(:delimited) %>
+            </div>
+          </div>
+        <% end %>
+        </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
