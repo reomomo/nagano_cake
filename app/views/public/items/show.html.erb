@@ -14,12 +14,14 @@
       <div class="mt-5"><strong>￥<%= @item.add_tax_price.to_s(:delimited) %></strong>（税込）</div>
       <div class="row">
         <div class="col-6">
-          <%= form_with model: CartItem.new do |f| %>
-            <%= f.select :amount, *[1..10] %>
-          <% end %>
-          </div>
+        <%= form_with model: CartItem.new do |f| %>
+          <%= f.select :amount, *[1..10] %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          <%= f.hidden_field :customer_id, :value => current_customer.id %>
+        </div>
         <div class="col-6">
-          <%= link_to "カートに入れる", cart_items_path, class: "btn btn-success font-weight-bold d-inline-flex" %>
+          <%= f.submit 'カートに入れる', class: "btn btn-success font-weight-bold d-inline-flex" %>
+        <% end %>
         </div>
       </div>
     </div>
