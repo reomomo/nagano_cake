@@ -18,9 +18,12 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
-    # @customer = Customer.find(current_customer.id)
-    # @customer.update(customer_params)
-    # redirect_to customers_my_page_path(@customer.id)
+    @customer = Customer.find(current_customer.id)
+    if @customer.is_deleted = false
+      @customer.is_deleted = true
+      @customer.update(customer_params)
+    end
+    redirect_to root_path
   end
 
   private
