@@ -7,3 +7,35 @@
       <h5 class="bg-gray px-1 text-center">配送先編集</h5>
     </div>
   </div>
+
+<!--登録-->
+  <%= form_with model: @address do |f| %>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>郵便番号(ハイフンなし)</div>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-3">
+      <div>住所</div>
+    </div>
+    <div class="col-7 d-flex p-0">
+      <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-3">
+      <div>宛名</div>
+    </div>
+    <div class="col-3 d-flex p-0">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
+    </div>
+    <div class="col-2 offset-4 d-flex p-0">
+      <%= f.submit '変更内容を保存', class: "btn btn-success font-weight-bold text-center w-100" %>
+    </div>
+  </div>
+  <% end %>
+</div>

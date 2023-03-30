@@ -2,7 +2,7 @@
 <!--ジャンル-->
   <div class="row">
     <div class="col-2">
-
+      <%= render 'public/homes/genre' %>
     </div>
 <!--詳細-->
     <div class="col-3">
@@ -14,8 +14,10 @@
       <div class="mt-5"><strong>￥<%= @item.add_tax_price.to_s(:delimited) %></strong>（税込）</div>
       <div class="row">
         <div class="col-6">
-          個数選択
-        </div>
+          <%= form_with model: CartItem.new do |f| %>
+            <%= f.select :amount, *[1..10] %>
+          <% end %>
+          </div>
         <div class="col-6">
           <%= link_to "カートに入れる", cart_items_path, class: "btn btn-success font-weight-bold d-inline-flex" %>
         </div>

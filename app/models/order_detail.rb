@@ -6,7 +6,7 @@ class OrderDetail < ApplicationRecord
   belongs_to :item
 
   def add_tax_price
-    (self.item.price * 1.10).round
+    (self.item.price * 1.1).floor
   end
 
 end

@@ -4,13 +4,13 @@
 <div class="container">
   <div class="row mb-2">
     <div class="col-md-3">
-      <h5 class="bg-gray px-1 text-center">配送先登録/一覧</h5>
+      <h5 class="bg-gray px-1 text-center mb-4">配送先登録/一覧</h5>
     </div>
   </div>
 
 <!--登録-->
-  <div class="row mb-2">
   <%= form_with model: @address do |f| %>
+  <div class="row mb-2">
     <div class="col-3">
       <div>郵便番号(ハイフンなし)</div>
     </div>
@@ -33,36 +33,37 @@
     <div class="col-3 d-flex p-0">
       <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "令和道子", class: "rounded ml-2 d-inline-flex justify-content-end w-100" %>
     </div>
-    <div class="col-3 d-flex p-0">
-      <%= f.submit '更新', class: "btn btn-success font-weight-bold d-inline-flex" %>
+    <div class="col-2 offset-4 d-flex p-0">
+      <%= f.submit '新規登録', class: "btn btn-success font-weight-bold text-center w-100" %>
     </div>
   </div>
+  <% end %>
 
 <!--一覧-->
-  <div class="row mb-4">
-    <table class="table">
-        <tr class="bg-light">
-          <th>郵便番号</th>
-          <th>住所</th>
-          <th>宛名</th>
-          <th></th>
+  <div class="row mt-5 mb-4">
+    <table class="table col-10">
+        <tr class="bg-gray col-3 border border-dark">
+          <th class="border border-dark">郵便番号</th>
+          <th class="border border-dark">住所</th>
+          <th class="border border-dark">宛名</th>
+          <th class="border border-dark"></th>
         </tr>
         <% @addresses.each do |address| %>
         <tr>
-          <td><%= address.postal_code %></td>
-          <td><%= address.address %></td>
-          <td><%= address.name %></td>
-          <td>
-          <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
+          <td class="border border-dark"><%= address.postal_code %></td>
+          <td class="border border-dark"><%= address.address %></td>
+          <td class="col-2 border border-dark"><%= address.name %></td>
+          <td class="col-4 border border-dark">
             <div class="row">
-              <div class="col-md-7 align-self-center">
-
+              <div class="col-md-6">
+                <!-- justify-content-end-->
+                <%= link_to '編集する', edit_address_path(address.id), class: "btn btn-success font-weight-bold" %>
               </div>
-              <div class="col-md-5">
-
+              <div class="col-md-6">
+                <!-- justify-content-start-->
+                <%= link_to '削除する', address_path(address.id), method: :delete, class: "btn btn-danger font-weight-bold" %>
               </div>
             </div>
-          <% end %>
           </td>
         </tr>
         <% end %>

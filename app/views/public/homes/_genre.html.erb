@@ -3,17 +3,10 @@
     <strong class="text-center">ジャンル検索</strong>
   </div>
   <ul class="list-unstyled ml-4 mb-5">
+  <% Genre.all.each do |genre| %>
     <li class="mb-1">
-      ケーキ
+      <%= genre.name %>
     </li>
-    <li class="mb-1">
-      焼き菓子
-    </li>
-    <li class="mb-1">
-      プリン
-    </li>
-    <li>
-      キャンディ
-    </li>
+  <% end %>
   </ul>
 </div>
