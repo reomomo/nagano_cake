@@ -13,10 +13,7 @@ class Item < ApplicationRecord
   end
 
   def with_tax_price
-    (self.price * 1.1).floor
+    (price * 1.1).floor
   end
 
-  # def price*amount
-  #   cart_item.amount * cart_item.item.add_tax_price
-  # end
 end

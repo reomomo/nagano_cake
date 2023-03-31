@@ -1,4 +1,6 @@
 class Public::AddressesController < ApplicationController
+  before_action :authenticate_customer!, only: [:index, :edit]
+
   def index
     @address = Address.new
     @addresses = current_customer.addresses
