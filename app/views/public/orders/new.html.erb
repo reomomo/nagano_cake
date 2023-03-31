@@ -15,7 +15,7 @@
           <%= f.radio_button :payment_methods, 0, checked: true %>
           <%= f.label :payment_methods, I18n.t(Order.payment_methods.key(0)) %>
           <%= f.radio_button :payment_methods, 1 %>
-          <%= f.label :payment_methods, Order.payment_methods.key(1) %><br />
+          <%= f.label :payment_methods, I18n.t(Order.payment_methods.key(1)) %><br />
         </div>
 
         <h5><strong>お届け先</strong></h5>

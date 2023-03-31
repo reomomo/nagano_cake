@@ -5,3 +5,74 @@
       <h5 class="bg-gray px-1 text-center">注文履歴詳細</h5>
     </div>
   </div>
+
+<!--注文情報-->
+   <div class="row">
+    <div class="col-md-8 align-self-start">
+      <strong>注文情報</strong>
+      <table class="table">
+        <tr>
+          <th class="bg-gray border border-dark">注文日</th>
+          <td class="border border-dark"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <th class="bg-gray border border-dark">配送先</th>
+          <td class="border border-dark">
+            〒<%= @order.delivery_target_postal_code %>
+            <%= @order.delivery_address %><br>
+            <%= @order.delivery_target_full_name %>
+          </td>
+        </tr>
+        <tr>
+          <th class="bg-gray border border-dark">支払方法</th>
+          <td class="border border-dark"><%= @order.payment_methods_i18n %></td>
+        </tr>
+        <tr>
+          <th class="bg-gray border border-dark">ステータス</th>
+          <td class="border border-dark"><%= @order.status_i18n %></td>
+        </tr>
+      </table>
+    </div>
+
+<!--請求情報-->
+    <div class="col-md-4">
+      <strong>請求情報</strong>
+      <table>
+        <tr>
+          <th class="col-8 bg-gray border border-dark">商品合計</th>
+          <td class="col-4 border border-dark"><%= @order.pay_amount.to_s(:delimited) %></td>
+        </tr>
+        <tr>
+          <th class="col-8 bg-gray border border-dark">配送料</th>
+          <td class="col-4 border border-dark"><%= @order.postage.to_s(:delimited) %></td>
+        </tr>
+        <tr>
+          <th class="col-8 bg-gray border border-dark"><strong>ご請求額</strong></th>
+          <td class="col-4 border border-dark"><%= (@order.pay_amount + @order.postage).to_s(:delimited) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+<!--注文内容-->
+  <div class="row">
+    <div class="col-md-10 align-self-start">
+      <strong>注文内容</strong>
+      <table class="table">
+        <tr class="bg-gray">
+          <th class="border border-dark">商品</th>
+          <th class="border border-dark">単価（税込）</th>
+          <th class="border border-dark">個数</th>
+          <th class="border border-dark">小計</th>
+        </tr>
+        <% @order_details.each do |order_detail| %>
+        <tr>
+          <td class="border border-dark"><%= order_detail.item.name %></td>
+          <td class="border border-dark"><%= order_detail.item.with_tax_price %></td>
+          <td class="border border-dark"><%= order_detail.amount %></td>
+          <td class="border border-dark"><%= order_detail.item.with_tax_price * order_detail.amount %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
