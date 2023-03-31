@@ -16,11 +16,12 @@
           <%= f.label :payment_methods, I18n.t(Order.payment_methods.key(0)) %>
           <%= f.radio_button :payment_methods, 1 %>
           <%= f.label :payment_methods, I18n.t(Order.payment_methods.key(1)) %><br />
+          <%= f.hidden_field :job_type %>
         </div>
 
         <h5><strong>お届け先</strong></h5>
         <div class="ml-5">
-          <%= f.radio_button :delivery_address, checked: true %>
+          <%= f.radio_button :delivery_address, checked: "checked" %>
           <%= f.label :delivery_address, "ご自身の住所", class:"mb-0" %><br />
           <div class="ml-4 mb-3">
             〒<%= current_customer.postal_code %> <%= current_customer.address %><br />

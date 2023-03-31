@@ -3,11 +3,11 @@ class Public::OrdersController < ApplicationController
   ]
 
   def new
-    @order = current_customer.order.new
+    @order = current_customer.orders.new
   end
 
   def create
-    @order = current_customer.order.new(order_params)
+    @order = current_customer.orders.new(order_params)
     redirect_to orders_confirm_path
   end
 
