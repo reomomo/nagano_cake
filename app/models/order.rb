@@ -9,7 +9,11 @@ class Order < ApplicationRecord
   belongs_to :customer
 
   def subtotal
-    item.with_tax_price * amount
+    Item.with_tax_price * amount
+  end
+
+  def delivery_full
+    "〒" + delivery_target_postal_code + delivery_address + delivery_target_full_name
   end
 
 end

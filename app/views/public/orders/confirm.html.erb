@@ -5,7 +5,7 @@
       <h5 class="bg-gray px-1 text-center">注文情報確認</h5>
     </div>
   </div>
-  
+
 <!--注文情報確認-->
   <div class="row">
     <div class="col-md-9 align-self-start">
@@ -35,37 +35,58 @@
         <% end %>
       </table>
     </div>
-  </div>
-  <div class="row">
-    
+
 <!--送料・合計・請求金額-->
     <div class="col-md-3">
       <!--align-self-end-->
       <table>
         <tr>
-          <th class="bg-gray border border-dark">合計金額</th>
+          <th class="bg-gray border border-dark">送料</th>
           <td class="border border-dark">
             <%= (@total += cart_item.subtotal).to_s(:delimited) %>
           </td>
         </tr>
         <tr>
-          <th class="bg-gray border border-dark">合計金額</th>
+          <th class="bg-gray border border-dark">商品合計</th>
           <td class="border border-dark">
-            <%= (@total += cart_item.subtotal).to_s(:delimited) %>
+            <%= @order.postage.to_s(:delimited) %>
           </td>
         </tr>
         <tr>
-          <th class="bg-gray border border-dark">合計金額</th>
+          <th class="bg-gray border border-dark">請求金額</th>
           <td class="border border-dark">
-            <%= (@total += cart_item.subtotal).to_s(:delimited) %>
+            <%= @order.pay_amount.to_s(:delimited) %>
           </td>
         </tr>
       </table>
     </div>
   </div>
   <div class="row">
+    <div class="col-md-2 align-self-start">
+      <strong>支払方法</strong>
+    </div>
+    <div class="col-md-10 align-self-start">
+      <%= @order.payment_methods_i18n %>
+    </div>
+    <div class="col-md-2 align-self-start">
+      <strong>お届け先</strong>
+    </div>
+    <div class="col-md-10 align-self-start">
+      <%= @order.delivery_full %>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-3 align-self-center">
-      <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success font-weight-bold " %>
+      <%= form_with model: @order, orders_path do |f| %>
+        <%= f.hidden_field :delivery_target_postal_code, :value => @order.delivery_target_postal_code %>
+        <%= f.hidden_field :delivery_address, :value => @order.delivery_address %>
+        <%= f.hidden_field :delivery_target_full_name, :value => @order.delivery_target_full_name %>
+        <%= f.hidden_field :postage, :value => @order.postage %>
+        <%= f.hidden_field :pay_amount, :value => @order.pay_amount %>
+        <%= f.hidden_field :payment_methods, :value => @order.payment_methods %>
+        <%= f.hidden_field :status, :value => 0 %>
+        <%= f.submit "注文を確定する", class: "btn btn-success font-weight-bold " %>
+      <% end %>
     </div>
   </div>
 </div>

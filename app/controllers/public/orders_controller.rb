@@ -8,18 +8,19 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = current_customer.orders.new(order_params)
+    
     redirect_to orders_confirm_path
   end
 
   def confirm
-    @cart_items = current_customer.cart_items.all
+    @order = current_customer.orders.new
+    @cart_items = @order.cart_items.all
     @total = 0
     @cart_items.each do |cart_item|
       @total += cart_item.item.with_tax_price*cart_item.amount
     end
-    # @order = Order.new(order_params)
-    # @order.save
-    # redirect_to orders_complete_path
+    @order.save
+    redirect_to orders_complete_path
   end
 
   def complete
