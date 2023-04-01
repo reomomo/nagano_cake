@@ -17,8 +17,6 @@
         <%= form_with model: CartItem.new do |f| %>
           <%= f.select :amount, *[1..10] %>
           <%= f.hidden_field :item_id, :value => @item.id %>
-        </div>
-        <div class="col-6">
           <%= f.submit 'カートに入れる', class: "btn btn-success font-weight-bold d-inline-flex" %>
         <% end %>
         </div>

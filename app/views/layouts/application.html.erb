@@ -9,77 +9,71 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <main>
-    <header class="shadow-sm">
-      <!--<span class="border-end border-dark">-->
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <p class="navbar-brand px-5 border">
-            <%= link_to 'LOGO', root_path %>
-          </p>
-
+    <span class="small">
+      <header class="border-bottom">
+        <nav class="navbar">
+          <a class="justify-content-start navbar-brand border border-dark text-dark py-1 px-5 mr-5" href="root_path">LOGO</a>
           <% if customer_signed_in? %>
+          <span class="ml-5 pl-5">ようこそ、<%= current_customer.last_name %>さん！</span>
           <div class="d-flex justify-content-end">
-            <li class="nav-item btn btn-outline-secondary list-unstyled mx-3 mt-3 mb-4">
-              <%= link_to 'マイページ', customers_my_page_path, class: 'nav-link text-dark' %>
+            <li class="nav-item border rounded list-unstyled mr-3">
+              <%= link_to 'マイページ', customers_my_page_path, class: 'nav-link text-dark px-1' %>
             </li>
-            <li class="nav-item btn btn-outline-secondary list-unstyled mx-3 mt-3 mb-4">
-              <%= link_to '商品一覧', items_path, class: 'nav-link text-dark' %>
+            <li class="nav-item border rounded list-unstyled ml-3 mr-3">
+              <%= link_to '商品一覧', items_path, class: 'nav-link text-dark px-2' %>
             </li>
-            <li class="nav-item btn btn-outline-secondary list-unstyled mx-3 mt-3 mb-4">
+            <li class="nav-item border rounded list-unstyled ml-3 mr-3">
               <%= link_to 'カート', cart_items_path, class: 'nav-link text-dark' %>
             </li>
-            <li class="nav-item btn btn-outline-secondary list-unstyled mx-3 mt-3 mb-4">
-              <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
+            <li class="nav-item border rounded list-unstyled ml-3 mr-3">
+              <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-dark px-2' %>
             </li>
           </div>
-          <% elsif admin_signed_in? %>%>
+          <% elsif admin_signed_in? %>
           <div class="d-flex justify-content-end">
-            <li class="nav-item btn btn-outline-secondary list-unstyled mx-3 mt-3 mb-4">
-              <%= link_to '商品一覧', admin_items_path, class: 'nav-link text-dark' %>
+            <li class="nav-item border rounded list-unstyled mr-2">
+              <%= link_to '商品一覧', admin_items_path, class: 'nav-link text-dark px-3' %>
             </li>
-            <li class="nav-item btn btn-outline-secondary list-unstyled mx-3 mt-3 mb-4">
-              <%= link_to '会員一覧', admin_customers_path, class: 'nav-link text-dark' %>
+            <li class="nav-item border rounded list-unstyled ml-3 mr-2">
+              <%= link_to '会員一覧', admin_customers_path, class: 'nav-link text-dark px-3' %>
             </li>
-            <li class="nav-item btn btn-outline-secondary list-unstyled mx-3 mt-3 mb-4">
-              <%= link_to '注文履歴一覧', admin_path, class: 'nav-link text-dark' %>
+            <li class="nav-item border rounded list-unstyled ml-3 mr-2">
+              <%= link_to '注文履歴一覧', admin_path, class: 'nav-link text-dark px-0' %>
             </li>
-            <li class="nav-item btn btn-outline-secondary list-unstyled mx-3 mt-3 mb-4">
-              <%= link_to 'ジャンル一覧', admin_genres_path, class: 'nav-link text-dark' %>
+            <li class="nav-item border rounded list-unstyled ml-3 mr-2">
+              <%= link_to 'ジャンル一覧', admin_genres_path, class: 'nav-link text-dark px-0' %>
             </li>
-            <li class="nav-item btn btn-outline-secondary list-unstyled mx-3 mt-3 mb-4">
-              <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+            <li class="nav-item border rounded list-unstyled ml-3 mr-2">
+              <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-dark px-2' %>
             </li>
           </div>
           <% else %>
           <div class="d-flex justify-content-end">
-            <li class="nav-item btn btn-outline-secondary list-unstyled mx-3 mt-3 mb-4">
+            <li class="nav-item border rounded list-unstyled mr-3">
               <%= link_to 'About', about_path, class: 'nav-link text-dark' %>
             </li>
-            <li class="nav-item btn btn-outline-secondary list-unstyled mx-3 mt-3 mb-4">
-              <%= link_to '商品一覧', items_path, class: 'nav-link text-dark' %>
+            <li class="nav-item border rounded list-unstyled ml-3 mr-3">
+              <%= link_to '商品一覧', items_path, class: 'nav-link text-dark px-2' %>
             </li>
-            <li class="nav-item btn btn-outline-secondary list-unstyled mx-3 mt-3 mb-4">
-              <%= link_to '新規登録', new_customer_registration_path, class: 'nav-link text-dark' %>
+            <li class="nav-item border rounded list-unstyled ml-3 mr-3">
+              <%= link_to '新規登録', new_customer_registration_path, class: 'nav-link text-dark px-2' %>
             </li>
-            <li class="nav-item btn btn-outline-secondary list-unstyled ml-3 mt-3 mb-4">
-              <%= link_to 'ログイン', new_customer_session_path, class: 'nav-link text-dark' %>
+            <li class="nav-item border rounded list-unstyled ml-3 mr-3">
+              <%= link_to 'ログイン', new_customer_session_path, class: 'nav-link text-dark px-2' %>
             </li>
           </div>
           <% end %>
-          </div>
         </nav>
-      <!--</span>-->
-    </header>
-
+      </header>
+    </span>
     <body>
       <%= yield %>
     </body>
     <footer>
-        <div class="container-md m-0 border-top w-100">
-          <div class="row"></div>
-        </div>
-
+      <div class="container-fluid border-top">
+        <div class="row mb-5 mt-4"></div>
+      </div>
     </footer>
   </main>
 </html>
