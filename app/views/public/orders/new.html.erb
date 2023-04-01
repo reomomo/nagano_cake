@@ -12,9 +12,9 @@
       <%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
         <h5><strong>支払方法</strong></h5>
         <div class="ml-5">
-          <%= f.radio_button :payment_methods, 0, checked: true %>
+          <%= f.radio_button :payment_methods, Order.payment_methods.key(0), checked: true %>
           <%= f.label :payment_methods, I18n.t(Order.payment_methods.key(0)) %>
-          <%= f.radio_button :payment_methods, 1 %>
+          <%= f.radio_button :payment_methods, Order.payment_methods.key(1) %>
           <%= f.label :payment_methods, I18n.t(Order.payment_methods.key(1)) %><br />
         </div>
 

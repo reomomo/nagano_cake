@@ -1,19 +1,26 @@
 <!--タイトル-->
 <div class="container">
   <div class="row mb-4">
-    <div class="col-md-3 offset-1">
-      <h5 class="bg-gray px-1 text-center">マイページ</h5>
+    <div class="col-4">
+      <div class="row align-items-center">
+        <div class="col-md-7 offset-5 justify-content-center">
+          <h5 class="bg-gray text-center">マイページ</h5>
+        </div>
+      </div>
     </div>
   </div>
 
 <!--登録情報-->
-  <div class="row mb-3 justify-content-start d-flex flex-row">
-    <div class="col d-flex">
-
-      <h5 class="mr-4"><strong>登録情報</strong></h5>
-
-
-      <%= link_to "編集する", customers_information_edit_path, class: "btn btn-success font-weight-bold " %>
+  <div class="row mb-3 justify-content-start">
+    <div class="col-4">
+      <div class="row align-items-center">
+        <div class="col-4">
+          <strong>登録情報</strong>
+        </div>
+        <div class="col-6">
+          <%= link_to "編集する", customers_information_edit_path, class: "btn btn-success font-weight-bold btn-block" %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row mb-3">
@@ -36,7 +43,7 @@
           <td class="border border-dark"><%= @customer.address %></td>
         </tr>
         <tr>
-          <th class="table-secondary border border-dark">電話番号</th>
+          <th class="bg-gray border border-dark">電話番号</th>
           <td class="border border-dark"><%= @customer.telephone_number %></td>
         </tr>
         <tr>
@@ -46,19 +53,28 @@
       </table>
     </div>
   </div>
-  <div class="row mb-3 mr-2 justify-content-start d-flex flex-row">
-    <div class="col-2 d-flex">
-      <strong class="mr-4">配送先</strong>
-    </div>
-    <div class="col-2 d-flex">
-      <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary font-weight-bold btn-block" %>
+  <div class="row mb-3 justify-content-start">
+    <div class="col-4">
+      <div class="row align-items-center">
+        <div class="col-4">
+          <strong>配送先</strong>
+        </div>
+        <div class="col-7">
+          <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary font-weight-bold btn-block" %>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row justify-content-start d-flex flex-row">
-    <div class="col d-flex">
-      <strong class="mr-4">注文履歴</strong>
-
-      <%= link_to "一覧を見る", orders_path, class: "btn btn-primary w-15 font-weight-bold" %>
+  <div class="row justify-content-start">
+    <div class="col-4">
+      <div class="row align-items-center">
+        <div class="col-4">
+          <strong>注文履歴</strong>
+        </div>
+        <div class="col-7">
+          <%= link_to "一覧を見る", orders_path, class: "btn btn-primary font-weight-bold btn-block" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

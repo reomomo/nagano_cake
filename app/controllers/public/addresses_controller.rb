@@ -1,13 +1,21 @@
 class Public::AddressesController < ApplicationController
-  before_action :authenticate_customer!, only: [:index, :edit]
+  before_action :authenticate_customer!
 
   def index
     @address = Address.new
-    @addresses = current_customer.addresses
+    @addresses = current_customer.addresses.all
   end
 
   def edit
     @address = Address.find(params[:id])
+  end
+
+  def create
+    @address = Address.new(address_params)
+    @address.customer_id = current_customer.id
+    @address.save
+    redirect_to addresses_path
+
   end
 
   def update

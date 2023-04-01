@@ -1,12 +1,11 @@
-
-
 <div class="container">
-  <div class="row mb-2">
+  <div class="row mt-5 mb-3"></div>
+  <div class="row mt-4 mb-4">
     <div class="col text-center">
       <h5 class="text-center"><strong></strong>本当に退会しますか？</strong></h5>
     </div>
   </div>
-  <div class="row mb-5">
+  <div class="row mb-4">
     <div class="col text-center">
       <span>
         退会すると、会員登録情報や<br>
@@ -15,16 +14,20 @@
       </span>
     </div>
   </div>
-  <div class="row mb-2">
-    <div class="col-3 offset-4 align-self-center">
-      <%= link_to customers_my_page_path do %>
-        <div class="btn btn-success font-weight-bold">退会しない</div>
-      <% end %>
-    </div>
-    <div class="col-3 align-self-center">
-    <%= form_with model: @customer, url: customers_withdraw_path do |f| %>
-      <%= f.submit "退会する", class: "btn btn-primary font-weight-bold" %>
-    <% end %>
+  <div class="row mb-5 justify-content-center">
+    <div class="col-5">
+      <div class="row justify-content-center">
+        <div class="col-5 pr-2">
+          <%= link_to "退会しない", customers_my_page_path, class: "btn btn-primary w-100 font-weight-bold" %>
+        </div>
+        <div class="col-5 pl-2">
+        <%= form_with model: @customer, url: customers_withdraw_path do |f| %>
+          <%= f.submit "退会する", class: "btn btn-danger w-100 font-weight-bold" %>
+        <% end %>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="row mb-5"></div>
+  <div class="row mb-4"></div>
 </div>

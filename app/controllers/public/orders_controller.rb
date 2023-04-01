@@ -28,7 +28,7 @@ class Public::OrdersController < ApplicationController
     end
 
     @cart_items = current_customer.cart_items.all
-    @orde.customer_id = current_customer.id
+    @order.customer_id = current_customer.id
     # 合計金額
     @total = 0
     @cart_items.each do |cart_item|
@@ -43,7 +43,7 @@ class Public::OrdersController < ApplicationController
     # order_detailへの保存
     current_customer.cart_items.each do |cart_item|
       @order_detail = OrderDetail.new
-      @order_detail.order.id = @order.id
+      @order_detail.order_id = @order.id
       @order_detail.item_id = cart_item.item_id
       @order_detail.product_sum = (cart_item.item.price*1.1).floor
       @order_detail.amount = cart_item.amount
@@ -51,7 +51,7 @@ class Public::OrdersController < ApplicationController
     end
     # カートの中身を削除
     current_customer.cart_items.destroy_all
-    redirect_to orders_complete_path
+    render :complete
   end
 
   def complete # 注文完了画面
