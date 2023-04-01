@@ -1,8 +1,12 @@
 <!--タイトル-->
-<div class="container">
+<div class="container_fuluid mx-5">
   <div class="row mb-4">
-    <div class="col-md-3 offset-1">
-      <h5 class="bg-gray px-1 text-center">注文履歴詳細</h5>
+    <div class="col-4">
+      <div class="row">
+        <div class="col-7 offset-3">
+          <h5 class="bg-gray mt-4 px-1 text-center">注文履歴詳細</h5>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -10,7 +14,7 @@
    <div class="row">
     <div class="col-md-8 align-self-start">
       <strong>注文情報</strong>
-      <table class="table">
+      <table class="table mt-2">
         <tr>
           <th class="bg-gray border border-dark">注文日</th>
           <td class="border border-dark"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
@@ -37,7 +41,7 @@
 <!--請求情報-->
     <div class="col-md-4">
       <strong>請求情報</strong>
-      <table>
+      <table class="table mt-2">
         <tr>
           <th class="col-8 bg-gray border border-dark">商品合計</th>
           <td class="col-4 border border-dark"><%= @order.pay_amount.to_s(:delimited) %></td>
@@ -54,10 +58,10 @@
     </div>
   </div>
 <!--注文内容-->
-  <div class="row">
+  <div class="row mb-5">
     <div class="col-md-10 align-self-start">
       <strong>注文内容</strong>
-      <table class="table">
+      <table class="table mt-2">
         <tr class="bg-gray">
           <th class="border border-dark">商品</th>
           <th class="border border-dark">単価（税込）</th>

@@ -22,7 +22,7 @@
         <div class="col-3">
           <div class="small">住所</div>
         </div>
-        <div class="col-7 p-0">
+        <div class="col-7 py-0 pl-0">
           <%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: "東京都渋谷区代々木神園町0-0", class: "rounded ml-3 w-100" %>
         </div>
       </div>
@@ -33,7 +33,7 @@
         <div class="col-3 p-0">
           <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "令和道子", class: "rounded ml-3 w-100" %>
         </div>
-        <div class="col-2 offset-4 p-0">
+        <div class="col-2 offset-4 p-0 justify-content-end">
           <%= f.submit '新規登録', class: "btn btn-success font-weight-bold text-center w-100 py-0" %>
         </div>
       </div>
