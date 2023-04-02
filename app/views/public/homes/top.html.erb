@@ -1,11 +1,11 @@
-<div class="container-md m-0">
+<div class="container">
   <div class="row mt-4">
 <!--ジャンル検索-->
-    <div class="col-md-2">
+    <div class="col-3">
       <%= render 'genre' %>
     </div>
 <!--トップ-->
-    <div class="col-md-10 d-flex align-items-center">
+    <div class="col-9 d-flex align-items-center" style="min-height: 250px;">
       <div class="image jumbotron">
         <div class="card ml-5 pr-3 py-3" style="width: 350px;">
           ようこそ、ながのCAKEへ！<br>
@@ -18,7 +18,7 @@
   </div>
 <!--新着商品-->
   <div class="row mt-4">
-    <div class="col offset-md-2">
+    <div class="col offset-2">
       <h4><strong>新着商品</strong></h4>
       <div class="d-flex">
         <% @items.limit(4).each do |item| %>
@@ -36,7 +36,7 @@
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col offset-md-10">
+    <div class="col offset-10">
       <%= link_to "全ての商品を見る>", items_path %>
     </div>
   </div>

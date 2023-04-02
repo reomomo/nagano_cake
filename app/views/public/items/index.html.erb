@@ -1,30 +1,38 @@
-<!--タイトル-->
-<div class="container">
-  <div class="row mb-2">
-    <div class="col-md-3">
-      <h5 class="bg-gray px-1 text-center">商品一覧<span class="text-small">(全<%= Item.count %>件)</span></h5>
-    </div>
-  </div>
+<div class="container" style="min-height: 500px;">
+  <div class="row mt-3">
 <!--ジャンル-->
-  <div class="row mt-4">
-    <div class="col-md-2">
+    <div class="col-3">
       <%= render 'public/homes/genre' %>
     </div>
+<!--タイトル-->
+    <div class="col-9">
+      <div class="row mb-2">
+        <div class="col-4">
+          <h4 class="text-center"><strong>商品一覧(全<%= Item.count %>件)</strong></h4>
+        </div>
+      </div>
+
 
 <!--一覧-->
-    <div class="col-md-10 mx-1">
-      <div class="d-flex my-box-light flex-wrap">
-        <% @items.each do |item| %>
-          <div class="row">
-            <div class="col">
-              <%= link_to item_path(item.id) do %>
-                <%= image_tag item.get_image(150,150) %>
-            　   <p><%= item.name %></p>
-            　   ¥<%= item.price.to_s(:delimited) %>
-            　<% end %>
+      <div class="row mb-2">
+        <div class="col-12 d-flex flex-wrap">
+          <% @items.each do |item| %>
+            <div class="row">
+              <div class="col" style="width: 200px; height: 200px;">
+                <%= link_to item_path(item.id) do %>
+                  <span class="mb-3"><%= image_tag item.get_image(150,150) %></span>
+                  <span class="item-name"><%= item.name %></span>
+                  <span class="mt-5 text-dark">¥<%= item.price.to_s(:delimited) %></span>
+                <% end %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-3 text-center">
+          <%= paginate @items %>
+        </div>
       </div>
     </div>
   </div>

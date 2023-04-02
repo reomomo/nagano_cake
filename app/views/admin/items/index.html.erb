@@ -1,19 +1,17 @@
 <!--タイトル-->
 <div class="container">
   <div class="row">
-    <div class="col-md-4.offset-md-8">
+    <div class="col-4.offset-8">
       <h3 class="bg-light">商品一覧</h3>
     </div>
     <%= link_to new_admin_item_path, class: "shadow p-3 mb-5 bg-white rounded" do %>
       <i class="fas fa-plus-circle"></i>
     <% end %>
   </div>
-</div>
 
 <!--一覧-->
-<div class="container">
   <div class="row">
-    <div class="col-md-11">
+    <div class="col-11">
       <table class="table">
         <tr class="bg-light">
           <th>商品ID</th>
@@ -34,9 +32,8 @@
           <td><%= item.is_active ? "販売中" : "販売停止中" %></td>
         </tr>
         <% end %>
+        <%= paginate @items %>
       </table>
     </div>
   </div>
 </div>
-
-<!--ページネーション-->
