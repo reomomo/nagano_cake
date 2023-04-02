@@ -3,6 +3,7 @@ class Public::OrdersController < ApplicationController
 
   def new # 注文情報入力画面
     @order = Order.new
+    @addresses = current_customer.addresses.all
   end
 
   def confirm # 注文情報確認画面
@@ -14,7 +15,7 @@ class Public::OrdersController < ApplicationController
       @order.delivery_target_full_name = current_customer.last_name + current_customer.first_name
     # 登録済み住所
     elsif params[:order][:address_option] == "1"
-      ship = Address.find(params[:order][:customer_id])
+      ship = Address.find(params[:order][:id])
       @order.delivery_target_postal_code = ship.postal_code
       @order.delivery_address = ship.address
       @order.delivery_target_full_name = ship.name

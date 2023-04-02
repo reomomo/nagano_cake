@@ -11,7 +11,7 @@
   </head>
   <main>
     <span class="small">
-      <header class="border-bottom">
+      <header class="border-bottom border-dark">
         <nav class="navbar">
           <a class="justify-content-start navbar-brand border border-dark text-dark py-1 px-5 mr-5" href="/">LOGO</a>
           <% if customer_signed_in? %>
@@ -71,7 +71,7 @@
       <%= yield %>
     </body>
     <footer>
-      <div class="container-fluid border-top">
+      <div class="container-fluid border-top border-dark", style="min-height: 50px;">
         <div class="row mb-5 mt-4"></div>
       </div>
     </footer>

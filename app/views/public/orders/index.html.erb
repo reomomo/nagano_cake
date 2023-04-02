@@ -1,5 +1,5 @@
 <!--タイトル-->
-<div class="container_fuluid mx-5">
+<div class="container_fuluid mx-5", style="min-height: 480px;">
   <div class="row mb-4">
     <div class="col-4">
       <div class="row">
@@ -23,21 +23,21 @@
         </tr>
         <% @orders.each do |order| %>
         <tr>
-          <td class="border border-dark py-4 px-0"><%= order.created_at.strftime('%Y/%-m/%-d') %></td>
-          <td class="border border-dark p-0">
+          <td class="border border-dark py-0auto px-1"><%= order.created_at.strftime('%Y/%-m/%-d') %></td>
+          <td class="border border-dark py-0 px-1">
             〒<%= order.delivery_target_postal_code %><br>
             <%= order.delivery_address %><br>
             <%= order.delivery_target_full_name %>
           </td>
-          <td class="border border-dark p-0">
+          <td class="border border-dark py-0auto px-1">
           <% order.order_details.all.each do |order_detail| %>
             <%= order_detail.item.name %><br>
           <% end %>
           </td>
-          <td class="border border-dark py-4 px-0"><%= order.pay_amount.to_s(:delimited) %>円</td>
-          <td class="border border-dark py-4 px-0"><%= order.status_i18n %>
-          <td class="border border-dark py-3 px-0 text-center">
-            <%= link_to "表示する", order_path(order.id), class: "btn btn-primary font-weight-bold py-1 px-2" %>
+          <td class="border border-dark py-4 px-1"><%= order.pay_amount.to_s(:delimited) %>円</td>
+          <td class="border border-dark py-4 px-1"><%= order.status_i18n %>
+          <td class="border border-dark py-3 pt-3 px-1 text-center">
+            <%= link_to "表示する", order_path(order.id), class: "btn btn-primary font-weight-bold mt-1 py-1 px-2" %>
           </td>
         </tr>
         <% end %>
