@@ -1,17 +1,18 @@
 <div class="container" style="min-height: 500px;">
-  <div class="row mt-3">
-<!--ジャンル-->
+  <div class="row mt-4">
+
+<!--ジャンル検索-->
     <div class="col-3">
       <%= render 'public/homes/genre' %>
     </div>
+
 <!--タイトル-->
-    <div class="col-9">
+    <div class="col-9 mt-3">
       <div class="row mb-2">
         <div class="col-4">
-          <h4 class="text-center"><strong>商品一覧(全<%= Item.count %>件)</strong></h4>
+          <h4><strong>商品一覧</strong><span class="h6">(全<%= Item.count %>件)</span></h4>
         </div>
       </div>
-
 
 <!--一覧-->
       <div class="row mb-2">

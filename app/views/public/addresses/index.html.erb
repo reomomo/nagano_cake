@@ -1,44 +1,44 @@
 <!--タイトル-->
-<div class="container", style="min-height: 450px;">
+<div class="container" style="min-height: 450px;">
   <div class="row mb-2 mt-4">
     <div class="col-3 offset-1 p-0">
       <h5 class="bg-gray text-center mb-4">配送先登録/一覧</h5>
     </div>
   </div>
 
-<!--登録・一覧-->
+<!--登録-->
   <%= form_with model: @address do |f| %>
-  <div class="row mb-2 ml-3">
-    <div class="col-10 ">
-      <div class="row mb-2">
-        <div class="col-3">
-          <div class="small">郵便番号(ハイフンなし)</div>
+    <div class="row mb-2 ml-3">
+      <div class="col-10 ">
+        <div class="row mb-2">
+          <div class="col-3">
+            <div class="small">郵便番号(ハイフンなし)</div>
+          </div>
+          <div class="col-3 p-0">
+            <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder: "0000000", class: "rounded ml-3 w-100" %>
+          </div>
         </div>
-        <div class="col-3 p-0">
-          <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder: "0000000", class: "rounded ml-3 w-100" %>
+        <div class="row mb-2">
+          <div class="col-3">
+            <div class="small">住所</div>
+          </div>
+          <div class="col-7 py-0 pl-0">
+            <%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: "東京都渋谷区代々木神園町0-0", class: "rounded ml-3 w-100" %>
+          </div>
         </div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-3">
-          <div class="small">住所</div>
-        </div>
-        <div class="col-7 py-0 pl-0">
-          <%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: "東京都渋谷区代々木神園町0-0", class: "rounded ml-3 w-100" %>
-        </div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-3">
-          <div class="small">宛名</div>
-        </div>
-        <div class="col-3 p-0">
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "令和道子", class: "rounded ml-3 w-100" %>
-        </div>
-        <div class="col-2 offset-4 p-0 justify-content-end">
-          <%= f.submit '新規登録', class: "btn btn-success font-weight-bold text-center w-100 py-0" %>
+        <div class="row mb-2">
+          <div class="col-3">
+            <div class="small">宛名</div>
+          </div>
+          <div class="col-3 p-0">
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "令和道子", class: "rounded ml-3 w-100" %>
+          </div>
+          <div class="col-2 offset-4 p-0 justify-content-end">
+            <%= f.submit '新規登録', class: "btn btn-success font-weight-bold text-center w-100 py-0" %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   <% end %>
 
 <!--一覧-->

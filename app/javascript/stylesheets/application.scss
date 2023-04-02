@@ -13,20 +13,16 @@
 
 .image {
   background-image: url("../images/wakubatsu.jpg");
-  width: 60%;
-  height: 90%;
   background-position: left;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 540px 270px;
 }
 
 .image-about {
   background-image: url("../images/wakubatsu.jpg");
-  width: 36%;
-  height: 90%;
   background-position: left;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 400px 200px;
 }
 
 .item-name {
@@ -36,4 +32,9 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.border-genre {
+
+  border-width:2px !important;
 }

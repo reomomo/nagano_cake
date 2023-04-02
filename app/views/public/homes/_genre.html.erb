@@ -1,8 +1,8 @@
-<div class="border">
-  <div class="border p-2">
+<div class="border-genre border border-dark mt-2">
+  <div class="border-genre border-bottom border-dark p-2 text-center">
     <strong class="text-center">ジャンル検索</strong>
   </div>
-  <ul class="list-unstyled ml-4 mb-5">
+  <ul class="list-unstyled mt-2 ml-4" style="width: 100px; height: 190px;">
   <% Genre.all.each do |genre| %>
     <li class="mb-1">
       <%= genre.name %>
