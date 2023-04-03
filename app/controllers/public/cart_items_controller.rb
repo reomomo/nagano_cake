@@ -23,6 +23,14 @@ class Public::CartItemsController < ApplicationController
     @cart_items.each do |cart_item|
       @total += cart_item.item.with_tax_price*cart_item.amount
     end
+
+    def to_oreder
+      if @total == 0
+        render :index
+      else
+        redirect_to new_order_path
+      end
+    end
   end
 
   def update

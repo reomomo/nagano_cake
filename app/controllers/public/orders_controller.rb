@@ -8,18 +8,18 @@ class Public::OrdersController < ApplicationController
 
   def confirm # 注文情報確認画面
     @order = Order.new(order_params)
-    # ご自身の住所
+  # ご自身の住所
     if params[:order][:address_option] == "0"
       @order.delivery_target_postal_code = current_customer.postal_code
       @order.delivery_address = current_customer.address
       @order.delivery_target_full_name = current_customer.last_name + current_customer.first_name
-    # 登録済み住所
+  # 登録済み住所
     elsif params[:order][:address_option] == "1"
-      ship = Address.find(params[:order][:id])
+      ship = Address.find(params[:order][:customer_id]).find(params[:address][:id])
       @order.delivery_target_postal_code = ship.postal_code
       @order.delivery_address = ship.address
       @order.delivery_target_full_name = ship.name
-    # 新しいお届け先
+  # 新しいお届け先
     elsif params[:order][:address_option] == "2"
       @order.delivery_target_postal_code = params[:order][:delivery_target_postal_code]
       @order.delivery_address = params[:order][:delivery_address]

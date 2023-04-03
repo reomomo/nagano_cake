@@ -28,7 +28,7 @@
           <%= f.radio_button :address_option, 1 %>
           <%= f.label :delivery_address, "登録済み住所から選択" %><br />
           <div class="ml-2 mb-2">
-            <%= select_tag "address_option", options_from_collection_for_select(current_customer.addresses,:id,:delivery,:customer_id), class: "form-control-sm w-75 h-25 ml-4 pl-0" %>
+            <%= select_tag "address_option", options_from_collection_for_select(@addresses,:id,:delivery), class: "form-control-sm w-75 h-25 ml-4 pl-0" %>
           </div>
           <%= f.radio_button :address_option, 2 %>
           <%= f.label :delivery_address, "新しいお届け先" %><br />
