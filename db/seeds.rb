@@ -60,7 +60,7 @@ Customer.create!(
   postal_code: "2250001",
   address: "神奈川県横浜市中区〇〇〇〇〇〇〇1-5-8　マンション205",
   telephone_number: "090-0000-0000",
-  is_deleted: true
+  is_deleted: false
   )
 
 Customer.create!(
@@ -73,7 +73,7 @@ Customer.create!(
   telephone_number: "090-0000-0002",
   email: "reotaro@gmail",
   password: "reoreo",
-  is_deleted: true
+  is_deleted: false
   )
 
 Order.create!(
