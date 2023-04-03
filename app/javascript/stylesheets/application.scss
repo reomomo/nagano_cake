@@ -10,3 +10,31 @@
 .bg-gray {
   background-color: #eeeeee !important;
 }
+
+.image {
+  background-image: url("../images/wakubatsu.jpg");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 540px 270px;
+}
+
+.image-about {
+  background-image: url("../images/wakubatsu.jpg");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 400px 200px;
+}
+
+.item-name {
+  margin: 10px 0;
+  display: block;
+  color: black;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.border-genre {
+
+  border-width:2px !important;
+}
