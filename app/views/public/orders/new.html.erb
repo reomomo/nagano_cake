@@ -13,14 +13,14 @@
         <h5><strong>支払方法</strong></h5>
         <div class="ml-5">
           <%= f.radio_button :payment_methods, Order.payment_methods.key(0), checked: true %>
-          <%= f.label :payment_methods, I18n.t(Order.payment_methods.key(0)) %><br />
+          <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %><br />
           <%= f.radio_button :payment_methods, Order.payment_methods.key(1) %>
-          <%= f.label :payment_methods, I18n.t(Order.payment_methods.key(1)) %><br />
+          <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer] %><br />
         </div>
         <h5><strong>お届け先</strong></h5>
         <div class="ml-5">
           <%= f.radio_button :address_option, 0, checked: "checked" %>
-          <%= f.label :delivery_address, "ご自身の住所", class:"mb-0" %><br />
+          <%= f.label :current_address, "ご自身の住所", class:"mb-0" %><br />
           <div class="ml-4 mb-2">
             〒<%= current_customer.postal_code %> <%= current_customer.address %><br />
             <%= current_customer.last_name %><%= current_customer.first_name %><br />
@@ -28,10 +28,10 @@
           <%= f.radio_button :address_option, 1 %>
           <%= f.label :delivery_address, "登録済み住所から選択" %><br />
           <div class="ml-2 mb-2">
-            <%= select_tag "address_option", options_from_collection_for_select(@addresses,:id,:delivery), class: "form-control-sm w-75 h-25 ml-4 pl-0" %>
+            <%= f.select :address_id, options_from_collection_for_select(@addresses, :id, :delivery) %>
           </div>
           <%= f.radio_button :address_option, 2 %>
-          <%= f.label :delivery_address, "新しいお届け先" %><br />
+          <%= f.label :new_address, "新しいお届け先" %><br />
           <div class="row mb-2">
             <div class="col-3 small">
               <%= f.label :"郵便番号(ハイフンなし)", class: "ml-4" %>

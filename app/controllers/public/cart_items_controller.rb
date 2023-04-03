@@ -13,7 +13,7 @@ class Public::CartItemsController < ApplicationController
       @cart_items = current_customer.cart_items.all
       redirect_to cart_items_path
     else
-      render :index
+      redirect_to cart_items_path
     end
   end
 
@@ -23,14 +23,6 @@ class Public::CartItemsController < ApplicationController
     @cart_items.each do |cart_item|
       @total += cart_item.item.with_tax_price*cart_item.amount
     end
-
-    def to_oreder
-      if @total == 0
-        render :index
-      else
-        redirect_to new_order_path
-      end
-    end
   end
 
   def update
@@ -38,7 +30,7 @@ class Public::CartItemsController < ApplicationController
     cart_item.update(cart_item_params)
     redirect_to cart_items_path
   end
-# cart_item_params[:item_id]
+
   def destroy
     cart_item = CartItem.find(params[:id])
     cart_item.destroy

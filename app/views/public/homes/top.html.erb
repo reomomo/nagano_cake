@@ -23,11 +23,11 @@
         <div class="col-12 d-flex">
           <% @items.limit(4).each do |item| %>
             <div class="row">
-              <div class="col" style="width: 200px; height: 200px;">
+              <div class="col-9 pl-0" style="width: 200px; height: 200px;">
                 <%= link_to item_path(item.id) do %>
                   <span class="mb-3"><%= image_tag item.get_image(150,150) %></span>
-            　     <strong class="item-name"><%= item.name %></strong>
-            　     <strong class="mr-5 pr-5 text-left text-dark">¥<%= item.price.to_s(:delimited) %></strong>
+                  <strong class="item-name"><%= item.name %></strong>
+                  <strong class="text-left text-dark">¥<%= item.price.to_s(:delimited) %></strong>
                 <% end %>
               </div>
             </div>

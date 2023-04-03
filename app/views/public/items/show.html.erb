@@ -16,7 +16,7 @@
       <h3><strong><%= @item.name %></strong></h3>
       <p class="mb-5"><%= @item.introduction %></p>
       <h3 class="mt-5"><strong>￥<%= @item.with_tax_price.to_s(:delimited) %></strong><small class="h6">（税込）</small></h3>
-      <%= form_with model: CartItem.new do |f| %>
+      <%= form_with model: @cart_item do |f| %>
         <div class="row mt-5 align-items-center">
           <div class="col-4">
             <%= f.select :amount, *[1..10], prompt: "個数選択" %>
