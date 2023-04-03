@@ -21,10 +21,8 @@ class Public::CustomersController < ApplicationController
 
   def withdraw
     @customer = current_customer
-    if @customer.is_deleted = false
-      @customer.is_deleted = true
-      @customer.update(customer_params)
-    end
+    @customer.is_deleted = true
+    reset_session
     redirect_to root_path
   end
 
