@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   }
 
   get "search" => "searches#search"
+  # get "search_result" => "searches#search_result"
 
   scope module: :public do
     root to: 'homes#top'
