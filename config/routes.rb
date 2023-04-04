@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  get "search" => "searches#search"
+
   scope module: :public do
     root to: 'homes#top'
     get '/about' => 'homes#about'

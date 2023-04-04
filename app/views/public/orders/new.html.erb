@@ -26,7 +26,7 @@
             <%= current_customer.last_name %><%= current_customer.first_name %><br />
           </div>
           <%= f.radio_button :address_option, 1 %>
-          <%= f.label :delivery_address, "登録済み住所から選択" %><br />
+          <%= f.label :delivery_address, "登録済住所から選択" %><br />
           <div class="ml-2 mb-2">
             <%= f.select :address_id, options_from_collection_for_select(@addresses, :id, :delivery) %>
           </div>
