@@ -1,25 +1,34 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4.offset-md-8">
-      <h3 class="bg-light">管理者ログイン</h3>
+<!--タイトル-->
+<div class="container" style="min-height: 480px;">
+  <div class="row my-5">
+    <div class="col-3 text-center">
+      <h5 class="bg-gray">管理者ログイン</h5>
     </div>
   </div>
+
+<!--ログイン-->
+  <%= form_with model: @admin, url: admin_session_path do |f| %>
+  <div class="row mb-2">
+    <div class="col-3 offset-1">
+      <%= f.label :"メールアドレス" %>
+    </div>
+    <div class="col-5">
+      <%= f.email_field :email, placeholder: "sample@example.com", autofocus: true, autocomplete: "email", class: "rounded w-100" %>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-3 offset-1">
+      <%= f.label :"パスワード" %>
+    </div>
+    <div class="col-5">
+      <%= f.password_field :password, autocomplete: "current-password", class: "rounded w-100" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 offset-4">
+      <%= f.submit "ログイン", class: "btn btn-primary btn-block" %>
+    </div>
+  </div>
+  <% end %>
+  <%= render "admin/shared/links" %>
 </div>
-<%= form_with model: @admin, url: admin_session_path do |f| %>
-
-  <div class="field">
-    <%= f.label :"メールアドレス" %><br />
-    <%= f.email_field :email, placeholder: "sample@example.com", autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :"パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-primary" %>
-  </div>
-<% end %>
-
-<%= render "admin/shared/links" %>
