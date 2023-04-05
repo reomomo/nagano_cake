@@ -1,20 +1,18 @@
 <!--タイトル-->
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <h3 class="bg-gray px-1 text-center">会員一覧</h3>
+<div class="container" style="min-height: 500px;">
+  <div class="row mt-5 mb-2">
+    <div class="col-2">
+      <h5 class="bg-gray text-center">会員一覧</h5>
     </div>
   </div>
-</div>
 
 <!--一覧-->
-<div class="container">
   <div class="row">
-    <div class="col">
-      <table class="table">
-        <tr class="bg-light">
+    <div class="col-9 offset-1">
+      <table class="table border-bottom">
+        <tr class="bg-gray">
           <th>会員ID</th>
-          <th>氏名</th>
+          <th class="col-4">氏名</th>
           <th>メールアドレス</th>
           <th>ステータス</th>
         </tr>
@@ -23,7 +21,7 @@
           <td><%= customer.id %></td>
           <td>
             <%= link_to admin_customer_path(customer.id) do %>
-              <%= customer.last_name %><%= customer.first_name %>
+              <span class="text-dark"><%= customer.last_name %><%= customer.first_name %></span>
             <% end %>
           </td>
           <td><%= customer.email %></td>
@@ -37,6 +35,11 @@
         </tr>
         <% end %>
       </table>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-3 text-center">
+      <%= paginate @customers %>
     </div>
   </div>
 </div>

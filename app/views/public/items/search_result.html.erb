@@ -1,0 +1,36 @@
+<!--タイトル-->
+<div class="container" style="min-height: 500px;">
+  <div class="row mt-4">
+
+<!--ジャンル検索-->
+    <div class="col-3">
+      <%= render 'public/homes/genre' %>
+    </div>
+
+<!--タイトル-->
+    <div class="col-9 mt-3">
+      <div class="row mb-2">
+        <div class="col-4">
+          <h4><strong>検索結果</strong></h4>
+        </div>
+      </div>
+
+<!--一覧-->
+      <div class="row mb-2">
+        <div class="col-12 d-flex flex-wrap">
+          <% @items.each do |item| %>
+            <div class="row">
+              <div class="col" style="width: 200px; height: 200px;">
+                <%= link_to item_path(item.id) do %>
+                  <span class="mb-3"><%= image_tag item.get_image(150,150) %></span>
+                  <span class="item-name"><%= item.name %></span>
+                  <span class="mt-5 text-dark">¥<%= item.price.to_s(:delimited) %></span>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

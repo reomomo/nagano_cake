@@ -1,86 +1,86 @@
 <!--タイトル-->
-<div class="container">
-  <div class="row">
-    <div class="col-md-5">
-      <h5 class="bg-gray px-1 text-center"><strong><%= @customer.last_name %><%= @customer.first_name %></strong>さんの<strong>会員情報編集</strong></h5>
+<div class="container" style="min-height: 500px;">
+  <div class="row my-4">
+    <div class="col-4">
+      <h4 class="bg-gray px-1 text-center"><span class="h5"><%= @customer.last_name %><%= @customer.first_name %></span>さんの<span class="h5">会員情報編集</span></h4>
     </div>
   </div>
 
 
-  <!--編集-->
+<!--編集-->
   <%= form_with model: @customer, url: admin_customer_path do |f| %>
-  <div class="row mb-2">
-    <div class="col-md-3">
-      <%= f.label :会員ID %>
+  <div class="row mb-2 ml-2">
+    <div class="col-3">
+      <%= f.label :id, '会員ID' %>
     </div>
-    <div class="col-md-9">
+    <div class="col-9">
       <%= @customer.id %>
     </div>
   </div>
-  <div class="row mb-2">
-    <div class="col-md-3">
+  <div class="row mb-2 ml-2">
+    <div class="col-3">
       <%= f.label :氏名 %>
     </div>
-    <div class="col-md-9">
+    <div class="col-9">
       <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "rounded" %>
       <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "mx-5 rounded"  %>
     </div>
   </div>
-  <div class="row mb-2">
-    <div class="col-md-3">
+  <div class="row mb-2 ml-2">
+    <div class="col-3">
       <%= f.label :フリガナ %>
     </div>
-    <div class="col-md-9">
+    <div class="col-9">
       <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class: "rounded" %>
       <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class: "mx-5 rounded" %>
     </div>
   </div>
-  <div class="row mb-2">
-    <div class="col-md-3">
+  <div class="row mb-2 ml-2">
+    <div class="col-3">
       <%= f.label :郵便番号 %>
     </div>
-    <div class="col-md-9">
+    <div class="col-9">
       <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "rounded" %>
     </div>
   </div>
-  <div class="row mb-2">
-    <div class="col-md-3">
+  <div class="row mb-2 ml-2">
+    <div class="col-3">
       <%= f.label :住所 %>
     </div>
-    <div class="col-md-9">
+    <div class="col-9">
       <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "w-75 rounded"  %>
     </div>
   </div>
-  <div class="row mb-2">
-    <div class="col-md-3">
+  <div class="row mb-2 ml-2">
+    <div class="col-3">
       <%= f.label :電話番号 %>
     </div>
-    <div class="col-md-9">
+    <div class="col-9">
       <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number", class: "rounded" %>
     </div>
   </div>
-  <div class="row mb-2">
-    <div class="col-md-3">
-      <%= f.label :email %>
+  <div class="row mb-2 ml-2">
+    <div class="col-3">
+      <%= f.label :メールアドレス %>
     </div>
-    <div class="col-md-9">
+    <div class="col-9">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "rounded" %>
     </div>
   </div>
-  <div class="row mb-2">
-    <div class="col-md-3">
-      <%= f.label :"会員ステータス" %>
+  <div class="row mb-2 ml-2">
+    <div class="col-3">
+      <%= f.label :会員ステータス %>
     </div>
-    <div class="col-md-9">
+    <div class="col-9">
       <%= f.radio_button :is_deleted, false, :checked => @customer.is_deleted == false %>
       <%= f.label :is_deleted, "有効", {value: :valid, style: "display: inline-block;"} %>
       <%= f.radio_button :is_deleted, true, :checked => @customer.is_deleted == true %>
       <%= f.label :is_deleted, "退会", {value: :unsubscribe, style: "display: inline-block;"} %><br />
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-3 offset-md-3">
-      <%= f.submit "変更を保存", class: "btn btn-success" %>
+  <div class="row my-4 ml-2">
+    <div class="col-3 offset-3">
+      <%= f.submit "変更を保存", class: "btn btn-success rounded" %>
     </div>
   </div>
   <% end %>

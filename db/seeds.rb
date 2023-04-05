@@ -60,7 +60,7 @@ Customer.create!(
   postal_code: "2250001",
   address: "神奈川県横浜市中区〇〇〇〇〇〇〇1-5-8　マンション205",
   telephone_number: "090-0000-0000",
-  is_deleted: true
+  is_deleted: false
   )
 
 Customer.create!(
@@ -73,7 +73,7 @@ Customer.create!(
   telephone_number: "090-0000-0002",
   email: "reotaro@gmail",
   password: "reoreo",
-  is_deleted: true
+  is_deleted: false
   )
 
 Order.create!(
@@ -128,4 +128,32 @@ OrderDetail.create!(
     product_sum: 550,
     amount: 1,
     making_status: 0,
+  )
+
+Address.create!(
+  customer_id: 1,
+  name: "田中花子",
+  postal_code: 2506666,
+  address: "東京都渋谷区〇〇0-0"
+  )
+
+Address.create!(
+  customer_id: 1,
+  name: "田中次郎",
+  postal_code: 1540000,
+  address: "東京都港区〇〇0-0"
+  )
+
+Address.create!(
+  customer_id: 2,
+  name: "佐藤次郎",
+  postal_code: 1540000,
+  address: "東京都足立区〇〇0-0"
+  )
+
+Address.create!(
+  customer_id: 2,
+  name: "佐藤桜子",
+  postal_code: 1310000,
+  address: "東京都江戸川区〇〇0-0"
   )

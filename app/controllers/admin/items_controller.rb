@@ -1,11 +1,12 @@
 class Admin::ItemsController < ApplicationController
+  before_action :authenticate_admin!
 
   def new
     @item = Item.new
   end
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).per(10)
   end
 
   def create
@@ -31,6 +32,6 @@ class Admin::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:image, :genre_id, :name, :introduction, :price, :is_active)
+    params.require(:item).permit(:image, :genre_id, :name, :introduction, :price, :is_active, :image)
   end
 end
