@@ -65,10 +65,9 @@
           </div>
           <% end %>
           <div class="col-2 offset-10">
-            <%= form_with url: search_path, local: true, method: :get do |f| %>
+            <%= form_with url: search_result_path, local: true, method: :get do |f| %>
               <span class="border">
                 <%= f.text_field :keyword, value: @keyword, placeholder: "search", style: "border: none;" %>
-
                 <%= f.button :type => "submit", style: "border: none; background: none;" do %>
                   <span class="text-primary"><i class="fas fa-search fa-rotate-90"></i></span>
                 <% end %>

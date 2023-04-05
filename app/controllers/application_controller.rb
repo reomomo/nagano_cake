@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   def search
     @keyword = params[:keyword]
+    @items = Item.search(params[:keyword])
     redirect_to search_result_path
   end
 

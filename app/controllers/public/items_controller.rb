@@ -10,7 +10,12 @@ class Public::ItemsController < ApplicationController
   end
 
   def search_result
-    @items = Item.search(params[:keyword])
+    if params[:keyword].present?
+      @items = Item.where('name LIKE ?', "%#{params[:keyword]}%")
+      @keyword=  params[:keyword]
+    else
+      @items = Item.all
+    end
   end
 
   private
