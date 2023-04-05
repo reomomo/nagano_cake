@@ -17,8 +17,8 @@ class Item < ApplicationRecord
     (price * 1.1).floor
   end
 
-  def self.looks(search, word)
-    @item = Item.where("name LIKE?","%#{word}")
+  def self.search(keyword)
+    Item.where("name like?","%#{keyword}%")
   end
 
 end
