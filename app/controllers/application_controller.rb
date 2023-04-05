@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-
+  def search
+    @keyword = params[:keyword]
+    @items = Item.search(params[:keyword])
+    redirect_to search_result_path
+  end
 
 protected
 

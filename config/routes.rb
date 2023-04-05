@@ -8,8 +8,6 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  get "search" => "searches#search"
-
   scope module: :public do
     root to: 'homes#top'
     get '/about' => 'homes#about'
@@ -25,6 +23,8 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :cart_items, only: [:index, :create, :update, :destroy]
+    get "search" => "items#search"
+    get "search_result" => "items#search_result"
   end
 
   namespace :admin do
