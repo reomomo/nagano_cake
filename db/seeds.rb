@@ -22,32 +22,68 @@ Genre.create!(
   name: "焼き菓子"
   )
 
-Genre.create!(
-  name: "キャンディ"
+Item.create!(
+  genre_id: 1,
+  name: "いちごのショートケーキ（ホール）",
+  introduction: "とちおとめ",
+  price: "2500",
+  is_active: true
   )
 
 Item.create!(
-    genre_id: 1,
-    name: "いちごのショートケーキ（ホール）",
-    introduction: "とちおとめ",
-    price: "2500",
-    is_active: true
+  genre_id: 1,
+  name: "ザッハトルテ",
+  introduction: "美味",
+  price: "2900",
+  is_active: true
   )
 
 Item.create!(
-    genre_id: 1,
-    name: "ザッハトルテ",
-    introduction: "美味",
-    price: "2900",
-    is_active: true
+  genre_id: 1,
+  name: "モンブラン",
+  introduction: "濃厚",
+  price: "500",
+  is_active: true
   )
 
 Item.create!(
-    genre_id: 1,
-    name: "モンブラン",
-    introduction: "濃厚",
-    price: "500",
-    is_active: true
+  genre_id: 1,
+  name: "チョコバナナミルフィーユ",
+  introduction: "ちょこたっぷり",
+  price: 1000,
+  is_active: true
+  )
+
+Item.create!(
+  genre_id: 2,
+  name: "かぼちゃのプリン",
+  introduction: "濃厚",
+  price: 480,
+  is_active: true
+  )
+
+Item.create!(
+  genre_id: 1,
+  name: "洋梨のチーズタルト",
+  introduction: "洋梨たっぷり",
+  price: 1200,
+  is_active: true
+  )
+
+Item.create!(
+  genre_id: 2,
+  name: "卵たっぷり濃厚プリン",
+  introduction: "濃厚",
+  price: 500,
+  is_active: true
+  )
+
+Item.create!(
+  genre_id: 3,
+  name: "紅茶のクッキー",
+  introduction: "さくさく",
+  price: 800,
+  is_active: true
   )
 
 Customer.create!(
@@ -74,6 +110,126 @@ Customer.create!(
   email: "reotaro@gmail",
   password: "reoreo",
   is_deleted: false
+  )
+
+Customer.create!(
+  last_name: "高橋",
+  first_name: "花子",
+  last_name_kana: "タカハシ",
+  first_name_kana: "ハナコ",
+  postal_code: "1110000",
+  address: "東京都新宿区西新宿0-0-0　マンション1501",
+  telephone_number: "09000001111",
+  email: "hana@gmail",
+  is_deleted: false
+  )
+
+Customer.create!(
+  last_name: "山本",
+  first_name: "次郎",
+  last_name_kana: "ヤマモト",
+  first_name_kana: "ジロウ",
+  postal_code: "2222000",
+  address: "神奈川県川崎市幸区〇〇0-0-0",
+  telephone_number: "08000000000",
+  email: "jiro@gmail",
+  is_deleted: true
+  )
+
+Customer.create!(
+  last_name: "高橋",
+  first_name: "りん",
+  last_name_kana: "タカハシ",
+  first_name_kana: "リン",
+  postal_code: "2220000",
+  address: "神奈川県小田原市○○0-0-0",
+  telephone_number: "09055556666",
+  email: "rin@gmain",
+  is_deleted: false
+  )
+
+Customer.create!(
+  last_name: "山田",
+  first_name: "漣",
+  last_name_kana: "ヤマダ",
+  first_name_kana: "レン",
+  postal_code: "22224444",
+  address: "神奈川県川崎市中原区○○0-0-0",
+  telephone_number: "08044442222",
+  email: "ren@gmail",
+  is_deleted: false
+  )
+
+Customer.create!(
+  last_name: "金川",
+  first_name: "健",
+  last_name_kana: "カナガワ",
+  first_name_kana: "ケン",
+  postal_code: "22221111",
+  address: "神奈川県川崎市",
+  telephone_number: "07055559999",
+  email: "ken@gmain",
+  is_deleted: false
+  )
+
+Customer.create!(
+  last_name: "松田",
+  first_name: "彩",
+  last_name_kana: "マツダ",
+  first_name_kana: "アヤ",
+  postal_code: "22221111",
+  address: "神奈川県横浜市中区〇〇〇〇〇〇〇1-5-108",
+  telephone_number: "09066664444",
+  email: "aya@gmain",
+  is_deleted: false
+  )
+
+Customer.create!(
+  last_name: "神田",
+  first_name: "かな",
+  last_name_kana: "カンダ",
+  first_name_kana: "カナ",
+  postal_code: "22227777",
+  address: "神奈川県横浜市中区〇〇〇〇〇〇〇1-5-108",
+  telephone_number: "08044446666",
+  email: "kana@gmain",
+  is_deleted: false
+  )
+
+Customer.create!(
+  last_name: "田仲",
+  first_name: "れい",
+  last_name_kana: "タナカ",
+  first_name_kana: "レイ",
+  postal_code: "22226666",
+  address: "神奈川県横浜市中区〇〇〇〇〇〇〇1-5-108",
+  telephone_number: "08099991111",
+  email: "rei@gmain",
+  is_deleted: false
+  )
+
+Customer.create!(
+  last_name: "田山",
+  first_name: "正樹",
+  last_name_kana: "タヤマ",
+  first_name_kana: "マサキ",
+  postal_code: "22226666",
+  address: "神奈川県横浜市中区〇〇〇〇〇〇〇1-5-108",
+  telephone_number: "09055553333",
+  email: "masa@gmain",
+  is_deleted: false
+  )
+
+Customer.create!(
+  last_name: "加藤",
+  first_name: "花子",
+  last_name_kana: "ヤマダ",
+  first_name_kana: "ハナコ",
+  postal_code: "2220000",
+  address: "東京都新宿区西新宿0-0-0　マンション1501",
+  telephone_number: "09099990000",
+   email: "mitiko@gmail",
+  is_deleted: true
   )
 
 Order.create!(
