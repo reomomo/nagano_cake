@@ -9,6 +9,25 @@ class Public::ItemsController < ApplicationController
     @cart_item = CartItem.new
   end
 
+  def search_result
+    if params[:keyword].present?
+      @items = Item.where('name LIKE ?', "%#{params[:keyword]}%")
+      @keyword=  params[:keyword]
+    else
+      @items = Item.all
+    end
+  end
+
+  def genre
+    @genres = Genre.all
+    if params[:genre_id].present?
+      @genre = Genre.find(params[:genre_id])
+      @items = @genre.items.page(params[:page]).per(8)
+    else
+      @items = Item.all
+    end
+  end
+
   private
     def list_params
      　params.require(:item).permit(:genre_id, :name, :introduction, :price, :is_active)

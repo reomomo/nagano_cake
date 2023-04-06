@@ -5,7 +5,7 @@
   <ul class="list-unstyled mt-2 ml-4" style="width: 100px; height: 190px;">
   <% Genre.all.each do |genre| %>
     <li class="mb-1">
-      <%= genre.name %>
+      <%= link_to genre.name, genre_path(genre_id: genre.id) %>
     </li>
   <% end %>
   </ul>

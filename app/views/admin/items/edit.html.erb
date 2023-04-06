@@ -1,35 +1,68 @@
 <!--タイトル-->
-<div class="container">
-  <div class="row">
-    <div class="col-md-5">
-      <h3 class="bg-light">商品編集</h3>
+<div class="container" style="min-height: 500px;">
+  <div class="row my-4">
+    <div class="col-2">
+      <h5 class="bg-gray text-center">商品編集</h5>
     </div>
   </div>
-</div>
 
 <!--編集-->
-<%= form_with model: @item, url: admin_item_path do |f| %>
-
-  <div class="field">
-    <%= f.label :"商品画像" %>
-    <%= f.file_field :image, accept: "image/*" %><br />
-    <%= f.label :"商品名" %>
-    <%= f.text_field :name %><br />
-    <%= f.label :"商品説明" %>
-    <%= f.text_field :introduction %><br />
-    <%= f.label :"ジャンル" %>
-    <%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.id]} %><br />
-    <%= f.label :"税抜価格" %>円
-    <%= f.text_field :price %><br />
-    <%= f.label :"販売ステータス" %>
-    <%= f.radio_button :is_active, true, :checked => @item.is_active == true %>
-    <%= f.label :is_active, "販売中", {value: :on_sale, style: "display: inline-block;"} %>
-    <%= f.radio_button :is_active, false, :checked => @item.is_active == false %>
-    <%= f.label :is_active, "販売停止中", {value: :stopping_sales, style: "display: inline-block;"} %><br />
-
-  </div>
-
-  <div class="actions">
-    <%= f.submit "変更を保存", class: "btn btn-success" %>
-  </div>
-<% end %>
+  <%= form_with model: @item, url: admin_item_path do |f| %>
+    <div class="row my-1 justify-content-center">
+      <div class="col-2 offset-1">
+        <%= f.label :"商品画像" %>
+      </div>
+      <div class="col-7">
+        <%= f.file_field :image, accept: "image/*" %><br />
+      </div>
+    </div>
+    <div class="row my-1 justify-content-center">
+      <div class="col-2 offset-1">
+        <%= f.label :"商品名" %>
+      </div>
+      <div class="col-7">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class="row my-1 justify-content-center">
+      <div class="col-2 offset-1">
+        <%= f.label :"商品説明" %>
+      </div>
+      <div class="col-7">
+        <%= f.text_field :introduction %>
+      </div>
+    </div>
+    <div class="row my-1 justify-content-center">
+      <div class="col-2 offset-1">
+        <%= f.label :"ジャンル" %>
+      </div>
+      <div class="col-7">
+        <%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.id]} %>
+      </div>
+    </div>
+    <div class="row my-1 justify-content-center">
+      <div class="col-2 offset-1">
+        <%= f.label :"税抜価格" %>
+      </div>
+      <div class="col-7">
+        <%= f.text_field :price %>円
+      </div>
+    </div>
+    <div class="row my-1 justify-content-center">
+      <div class="col-2 offset-1">
+        <%= f.label :"販売ステータス" %>
+      </div>
+      <div class="col-7">
+        <%= f.radio_button :is_active, true, :checked => @item.is_active == true %>
+        <%= f.label :is_active, "販売中", {value: :on_sale, style: "display: inline-block;"} %>
+        <%= f.radio_button :is_active, false, :checked => @item.is_active == false %>
+        <%= f.label :is_active, "販売停止中", {value: :stopping_sales, style: "display: inline-block;"} %><br />
+      </div>
+    </div>
+    <div class="row my-1 justify-content-center">
+      <div class="col-2">
+        <%= f.submit "変更を保存", class: "btn btn-success rounded" %>
+      </div>
+    </div>
+  <% end %>
+</div>
