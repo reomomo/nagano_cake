@@ -22,7 +22,7 @@
         </div>
         <div class="col-5 pl-2">
         <%= form_with model: @customer, url: customers_withdraw_path do |f| %>
-          <%= f.submit "退会する", class: "btn btn-danger w-100 font-weight-bold" %>
+          <%= f.submit "退会する", "data-confirm" => "本当に退会しますか？", class: "btn btn-danger w-100 font-weight-bold" %>
         <% end %>
         </div>
       </div>
